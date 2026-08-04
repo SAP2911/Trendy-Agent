@@ -1,0 +1,29 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# builds
+.next/
+out/
+build/
+dist/
+
+# env — never commit API keys
+.env
+.env*.local
+!.env.example
+
+# test / coverage artifacts
+coverage/
+reports/
+.stryker-tmp/
+*.tsbuildinfo
+
+# vercel
+.vercel
+
+# os / editor
+.DS_Store
+Thumbs.db
+*.log
