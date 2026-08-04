@@ -152,13 +152,53 @@ the reference date in every tool result so reasoning is auditable, and expose a
 
 | Layer | Choice | Justification |
 |---|---|---|
-| Language | TypeScript (strict) | One language across UI, agent, and tests; Zod gives one schema for runtime validation *and* tool JSON Schema |
-| Framework | Next.js 15 App Router | Single deployable; SSE streaming; RSC for the shell |
-| LLM transport | AI SDK v5 | Provider-agnostic adapters solve Gemini↔Groq portability |
-| Providers | Gemini (primary) → Groq (fallback) | Free tier only; failover is mandatory, see §4.3 |
-| Retrieval | BM25 + alias map over parsed clauses | See §6 — no vector DB |
-| Tests | Vitest + Stryker | Coverage ≥90% repo-wide; mutation ≥90% on `lib/policy` + `lib/guards` |
-| Hosting | Vercel Hobby | 300s function duration; no cold spin-down (unlike Render free), so the URL stays live for the required two weeks |
+All versions below were verified against the npm registry and the packages' own
+TypeScript declarations on 2026-08-04. **Exact-pinned**, per `AGENTS.md` supply-chain
+hygiene.
+
+| Layer | Choice | Version | Justification |
+|---|---|---|---|
+| Language | TypeScript (strict) | 5.x | One language across UI, agent, and tests; Zod is the single source of truth for runtime validation *and* tool JSON Schema |
+| Framework | Next.js App Router | `next@16.3.0`, `react@19.2.8` | Single deployable; SSE streaming; RSC shell |
+| LLM transport | AI SDK | `ai@7.0.51` | Provider-agnostic; v7 is npm `latest` (v5/v6 superseded) |
+| Providers | Gemini → Groq | `@ai-sdk/google@4.0.33`, `@ai-sdk/groq@4.0.21` | Free tier only; failover mandatory, see §4.3 |
+| Schemas | Zod | `zod@4.4.3` | Satisfies SDK peer range `^3.25.76 \|\| ^4.1.8` |
+| Retrieval | BM25 + alias map | — | See §6 — no vector DB |
+| Tests | Vitest + Stryker | `vitest@4.1.10`, `@stryker-mutator/core@9.6.1` | Coverage ≥90% repo-wide; mutation ≥90% on `lib/policy` + `lib/guards` |
+| Hosting | Vercel Hobby | — | 300s function duration; no cold spin-down (unlike Render free), so the URL stays live the required two weeks |
+
+**Environment variables** (verified from provider source, not assumed):
+`GOOGLE_GENERATIVE_AI_API_KEY` and `GROQ_API_KEY`.
+
+**AI SDK 7 breaking changes that this design depends on** — v5/v6 tutorials will be
+wrong on all four:
+
+- `system:` is deprecated → use **`instructions:`**. System messages inside `messages`
+  are rejected unless `allowSystemInMessages` is set.
+- `result.fullStream` → **`result.stream`**.
+- `stepCountIs(n)` → **`isStepCount(n)`**.
+- Tool context flows through **`runtimeContext`** / **`toolsContext`**, replacing
+  `experimental_context`.
+
+**v7 capabilities folded into the design** (these materially improve §7.2):
+
+| Capability | Use here |
+|---|---|
+| `runtimeContext` | Carries the verified session identity into every tool `execute` — no module globals, no prompt-passed customer ID |
+| `activeTools` + `prepareStep` | **Gates tool availability by session state.** While `ANONYMOUS`, only `verify_customer`, `search_policy`, and `escalate_to_human` are exposed to the model at all |
+| `onStepFinish`, `onToolExecutionStart/End` | Native hooks for trace emission — no monkey-patching |
+| `repairToolCall` | Native malformed-tool-argument recovery |
+| `toolApproval` | Human-in-the-loop confirmation on mutating tools |
+
+`activeTools` upgrades identity gating from one check to **defense in depth**: an
+unverified session cannot even *see* the order tools, and the tools re-check identity
+independently if called. A prompt injection has nothing to reach for.
+
+**Model selection is deferred to the bake-off (§9.3), not assumed.** The provider
+packages expose `gemini-3.6-flash`, `gemini-3.5-flash`, and `gemini-2.5-flash` on the
+Google side and `moonshotai/kimi-k2-instruct-0905`, `openai/gpt-oss-120b`, and
+`llama-3.3-70b-versatile` on Groq. Gemini 3.x post-dates this design's initial research;
+picking a model without measuring tool-calling accuracy would violate Gate 8.
 
 **Rejected: LangChain / LangGraph.** For a 13-tool agent it adds abstraction depth and
 version churn while hiding the exact loop being graded. The assignment warns candidates
@@ -362,18 +402,27 @@ Threshold is calibrated against a fixture set of in-corpus and out-of-corpus que
 Server-side identity binding on every order-scoped tool · step budget · repeated-call
 loop detector · provider circuit breaker.
 
-**Identity gating (confirmed strict).** Session state machine:
+**Identity gating (confirmed strict) — defense in depth.** Session state machine:
 
 ```
 ANONYMOUS → IDENTIFYING → VERIFIED → [ACTING] → ESCALATED
 ```
 
-No order data — not even existence confirmation — is disclosed before `VERIFIED`.
-`lookup_order` compares `order.customer_id` against the session's verified customer and
-returns `ACCESS_DENIED` otherwise. This is enforced in the tool, not the prompt, because
-prompt-level authorization is bypassable by injection. §7 forbids confirming *or
-discussing* another customer's order, and cross-customer access is an obvious grader
-probe (e.g. C-100 asking about TR-4522, which belongs to C-101).
+Three independent layers, because prompt-level authorization is bypassable by injection:
+
+| Layer | Mechanism |
+|---|---|
+| **1. Exposure** | `prepareStep` sets `activeTools`. While not `VERIFIED`, the model is only shown `verify_customer`, `search_policy`, `escalate_to_human`. Order tools do not exist in its schema. |
+| **2. Execution** | Each order-scoped tool reads the verified customer from `runtimeContext` — never from model-supplied arguments — and returns `ACCESS_DENIED` on mismatch. |
+| **3. Emission** | The leakage validator (§7.3) scans the final message for any order ID, name, or email not bound to the verified customer. |
+
+No order data — not even existence confirmation — is disclosed before `VERIFIED`. §7
+forbids confirming *or discussing* another customer's order, and cross-customer access is
+an obvious grader probe (e.g. C-100 asking about TR-4522, which belongs to C-101).
+
+Layer 2 reading identity from `runtimeContext` rather than a tool argument is the crux:
+if the customer ID were a tool parameter, the model could be talked into passing a
+different one. It cannot forge a value it never supplies.
 
 ### 7.3 Output (post-model, pre-send) — the anti-hallucination layer
 
