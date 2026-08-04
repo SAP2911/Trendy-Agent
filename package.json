@@ -1,0 +1,44 @@
+{
+  "name": "trendly-support-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "eval": "tsx tests/eval/runner.ts",
+    "eval:record": "TRENDLY_EVAL_MODE=record tsx tests/eval/runner.ts",
+    "bakeoff": "tsx tests/eval/bakeoff.ts",
+    "mutation": "stryker run"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "4.0.33",
+    "@ai-sdk/groq": "4.0.21",
+    "@ai-sdk/react": "4.0.54",
+    "ai": "7.0.51",
+    "next": "16.3.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "9.6.1",
+    "@stryker-mutator/vitest-runner": "9.6.1",
+    "@types/node": "22.10.2",
+    "@types/react": "19.2.8",
+    "@types/react-dom": "19.2.4",
+    "@vitest/coverage-v8": "4.1.10",
+    "eslint": "9.17.0",
+    "eslint-config-next": "16.3.0",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2",
+    "vitest": "4.1.10",
+    "yaml": "2.6.1"
+  }
+}

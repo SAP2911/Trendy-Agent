@@ -122,7 +122,7 @@ Computed at `TRENDLY_AS_OF=2026-08-04`. These are the acceptance criteria for Ta
     "@stryker-mutator/vitest-runner": "9.6.1",
     "@types/node": "22.10.2",
     "@types/react": "19.2.8",
-    "@types/react-dom": "19.2.8",
+    "@types/react-dom": "19.2.4",
     "@vitest/coverage-v8": "4.1.10",
     "eslint": "9.17.0",
     "eslint-config-next": "16.3.0",
