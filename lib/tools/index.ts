@@ -3,6 +3,7 @@ import { z } from 'zod';
 import type { TrendlyContext } from '@/lib/agent/session';
 import { verifySession } from '@/lib/agent/session';
 import * as impl from './impl';
+import * as mutating from './mutating';
 
 /**
  * Tools read the verified identity from `ctx`, closed over here at build
@@ -123,6 +124,69 @@ export function buildTools(ctx: TrendlyContext): ToolSet {
         + 'does not authorise just because the item genuinely arrived damaged.',
       inputSchema: z.object({ orderId: z.string(), sku: z.string() }),
       execute: async (args) => impl.reportDamagedItemImpl(args, ctx),
+    }),
+
+    issue_delay_credit: tool({
+      description:
+        'Issue the ₹250 delivery-delay store credit (§1.5). This tool RE-CHECKS '
+        + 'lateness itself and refuses if the order is not genuinely more than 3 '
+        + 'business days past its expected delivery date — always call this to actually '
+        + 'issue the credit, never tell the customer it has been issued based on '
+        + 'check_delay_credit alone. Safe to retry: a repeat call on the same order '
+        + 'returns the same credit, never a second one.',
+      inputSchema: z.object({ orderId: z.string() }),
+      execute: async (args) => mutating.issueDelayCreditImpl(args, ctx),
+    }),
+
+    initiate_return: tool({
+      description:
+        'Create a return (RMA) for one item. This tool RE-VERIFIES eligibility itself '
+        + 'from policy and the order data — it will refuse (REFUSED_INELIGIBLE) even if '
+        + 'you believe the item qualifies, and route lost-parcel orders to MUST_ESCALATE '
+        + 'instead of creating anything. Only tell the customer a return was created if '
+        + 'this tool returns RETURN_CREATED. Safe to retry: a repeat call on the same '
+        + 'order and sku returns the same RMA, never a second one.',
+      inputSchema: z.object({ orderId: z.string(), sku: z.string() }),
+      execute: async (args) => mutating.initiateReturnImpl(args, ctx),
+    }),
+
+    initiate_exchange: tool({
+      description:
+        'Create a size exchange for one item. This tool RE-VERIFIES eligibility itself '
+        + '(30-day window, category, final-sale rules) — it will refuse even if you '
+        + 'believe the exchange is valid. Trendly offers size exchanges only (§4.1); for '
+        + 'a colour or style change, do not call this — tell the customer to return the '
+        + 'item and place a new order. Safe to retry: a repeat call on the same order and '
+        + 'sku returns the same exchange, never a second one.',
+      inputSchema: z.object({
+        orderId: z.string(), sku: z.string(), toSize: z.string(),
+      }),
+      execute: async (args) => mutating.initiateExchangeImpl(args, ctx),
+    }),
+
+    escalate_to_human: tool({
+      description:
+        'Hand the conversation to a human agent with a ticket they can act on. '
+        + 'reasonCode MUST be one of the fixed set the tool documents in its response '
+        + "when rejected — never invent one. Use this for lost parcels, COD refunds "
+        + '(bank details are never collected in chat — §3.3), a second exchange on the '
+        + 'same item (§4.4), questions the policy does not cover, or whenever the '
+        + 'customer asks for a person. Write situation/suggestedResolution so a human who '
+        + 'has not read this conversation can act on the ticket immediately, and fill in '
+        + 'attempted and policyRefs with what you already checked so the human does not '
+        + 'have to repeat it.',
+      inputSchema: z.object({
+        reasonCode: z.string(),
+        situation: z.string().describe('What happened, in enough detail for a human to act'),
+        suggestedResolution: z.string().describe('What should happen next, with policy refs'),
+        orderIds: z.array(z.string()).describe('Order ids relevant to this escalation'),
+        attempted: z.array(z.string()).optional()
+          .describe('Tools already called or steps already taken in this conversation, '
+            + 'e.g. "checked check_return_eligibility: INELIGIBLE_CATEGORY"'),
+        policyRefs: z.array(z.string()).optional()
+          .describe('Policy clause ids relevant to this escalation, e.g. ["1.6", "3.3"]'),
+      }),
+      execute: async (args) => mutating.escalateToHumanImpl(args, ctx),
     }),
   } satisfies ToolSet;
 }
