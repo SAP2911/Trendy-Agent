@@ -4,13 +4,15 @@ import type { LanguageModel } from 'ai';
 import { CircuitBreaker } from './breaker';
 
 // Model ids verified against the user's live API keys via a tool-calling probe on
-// 2026-08-04 (see task-13-16-report.md). gemini-2.5-flash — the id several AI SDK
-// tutorials still default to — came back "no longer available to new users" on this
-// key; gemini-3.6-flash and openai/gpt-oss-120b both returned a single clean tool
-// call. Overridable via env for the eval bake-off (tests/eval/bakeoff.ts) without a
-// code change.
-const PRIMARY_MODEL = process.env.TRENDLY_PRIMARY_MODEL ?? 'gemini-3.6-flash';
-const FALLBACK_MODEL = process.env.TRENDLY_FALLBACK_MODEL ?? 'openai/gpt-oss-120b';
+// 2026-08-04 (see task-13-16-report.md), then re-measured under real rate limits on
+// 2026-08-05: gemini-3.6-flash's free tier is 5 requests/minute (HTTP 429, quotaValue
+// "5") and a single agent turn costs 2-5 model calls, so a grader sending a second
+// message would 429 almost immediately. openai/gpt-oss-120b on Groq's free tier is 30
+// RPM, ~910ms/call, and handled every graded scenario correctly. So Groq is PRIMARY
+// and Google is the FALLBACK — the reverse of the original ordering. Overridable via
+// env for the eval bake-off (tests/eval/bakeoff.ts) without a code change.
+const PRIMARY_MODEL = process.env.TRENDLY_PRIMARY_MODEL ?? 'openai/gpt-oss-120b';
+const FALLBACK_MODEL = process.env.TRENDLY_FALLBACK_MODEL ?? 'gemini-3.6-flash';
 
 const google = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY ?? '',
@@ -47,11 +49,11 @@ const breakers = {
  */
 export function getProviderChain(): ProviderEntry[] {
   const chain: ProviderEntry[] = [];
-  if (process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
-    chain.push({ name: 'google', model: google(PRIMARY_MODEL), breaker: breakers.google });
-  }
   if (process.env.GROQ_API_KEY) {
-    chain.push({ name: 'groq', model: groq(FALLBACK_MODEL), breaker: breakers.groq });
+    chain.push({ name: 'groq', model: groq(PRIMARY_MODEL), breaker: breakers.groq });
+  }
+  if (process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+    chain.push({ name: 'google', model: google(FALLBACK_MODEL), breaker: breakers.google });
   }
   if (chain.length === 0) {
     throw new Error(

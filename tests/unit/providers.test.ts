@@ -42,11 +42,11 @@ describe('getProviderChain', () => {
     expect(chain.map((p) => p.name)).toEqual(['groq']);
   });
 
-  it('orders google before groq when both keys are set, each with a closed breaker', () => {
+  it('orders groq before google when both keys are set, each with a closed breaker', () => {
     process.env.GOOGLE_GENERATIVE_AI_API_KEY = 'test-key';
     process.env.GROQ_API_KEY = 'test-key';
     const chain = getProviderChain();
-    expect(chain.map((p) => p.name)).toEqual(['google', 'groq']);
+    expect(chain.map((p) => p.name)).toEqual(['groq', 'google']);
     expect(chain.every((p) => p.breaker.state === 'closed')).toBe(true);
   });
 });
