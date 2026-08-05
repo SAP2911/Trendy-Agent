@@ -2683,8 +2683,8 @@ import { CircuitBreaker } from './breaker';
 
 // Model ids verified against the installed provider packages on 2026-08-04.
 // Final selection is made by tests/eval/bakeoff.ts, not by assumption.
-const PRIMARY_MODEL = process.env.TRENDLY_PRIMARY_MODEL ?? 'gemini-2.5-flash';
-const FALLBACK_MODEL = process.env.TRENDLY_FALLBACK_MODEL ?? 'llama-3.3-70b-versatile';
+const PRIMARY_MODEL = process.env.TRENDLY_PRIMARY_MODEL ?? 'gemini-3.6-flash';
+const FALLBACK_MODEL = process.env.TRENDLY_FALLBACK_MODEL ?? 'openai/gpt-oss-120b';
 
 const google = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY ?? '',
