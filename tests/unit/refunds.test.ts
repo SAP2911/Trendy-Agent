@@ -2,6 +2,7 @@ import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { refundPlanFor } from '@/lib/policy/refunds';
 import { delayCreditFor } from '@/lib/policy/delay';
 import { getOrder } from '@/lib/data/orders';
+import type { Order } from '@/lib/data/orders';
 
 const ORIGINAL_AS_OF = process.env.TRENDLY_AS_OF;
 
@@ -96,5 +97,19 @@ describe('delayCreditFor', () => {
 
   it('is not applicable to a cancelled order with no expected date', () => {
     expect(delayCreditFor(getOrder('TR-4529')!).code).toBe('NOT_APPLICABLE');
+  });
+
+  // No order in the fixed dataset is both non-cancelled/non-delivered AND
+  // missing an expected_delivery date, so this defensive branch is otherwise
+  // unreachable via real data. Exercised with a synthetic fixture, same
+  // rationale as the footwear/store_credit cases in eligibility.test.ts.
+  it('is not applicable when an in-transit order has no expected delivery date', () => {
+    const base = getOrder('TR-4521')!;
+    const order: Order = { ...base, order_id: 'TEST-NO-EXPECTED-1', expected_delivery: null };
+    const result = delayCreditFor(order);
+    expect(result.code).toBe('NOT_APPLICABLE');
+    if (result.code === 'NOT_APPLICABLE') {
+      expect(result.reason).toBe('The order has no expected delivery date.');
+    }
   });
 });
