@@ -9,6 +9,13 @@ what it must not do.
 > Eligibility, business-day arithmetic and refund timelines are pure functions, never model
 > judgments.
 
+### 🔗 Live
+
+**App:** <https://trendly-support-agent-kappa.vercel.app>
+**Repo:** <https://github.com/SAP2911/Trendy-Agent>
+
+---
+
 **Architecture, trade-offs, limitations and discovery questions → [SOLUTION.md](SOLUTION.md)**
 **Prompt engineering and its iteration log → [PROMPTS.md](PROMPTS.md)**
 
