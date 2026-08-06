@@ -113,3 +113,16 @@ describe('delayCreditFor', () => {
     }
   });
 });
+
+describe('NOT_OWED carries the policy figures it is refusing on', () => {
+  // Without these the agent cannot explain the refusal without inventing
+  // numbers, and the numeric-grounding validator then blocks a correct answer.
+  it('exposes the ₹250 amount and the 3-business-day threshold', () => {
+    const r = delayCreditFor(getOrder('TR-4521')!);
+    expect(r.code).toBe('NOT_OWED');
+    if (r.code === 'NOT_OWED') {
+      expect(r.wouldBeAmountInr).toBe(250);
+      expect(r.thresholdBusinessDays).toBe(3);
+    }
+  });
+});

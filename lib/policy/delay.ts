@@ -5,7 +5,19 @@ import { businessDaysBetween } from './business-days';
 
 export type DelayCreditResult =
   | { code: 'OWED'; amountInr: 250; businessDaysLate: number; clauses: ClauseId[] }
-  | { code: 'NOT_OWED'; businessDaysLate: number; clauses: ClauseId[] }
+  | {
+      code: 'NOT_OWED'; businessDaysLate: number; clauses: ClauseId[];
+      /**
+       * The figures §1.5 sets, carried even when the credit is NOT owed.
+       *
+       * Without these the agent cannot explain WHY it is refusing without
+       * inventing numbers — and the numeric-grounding validator then blocks a
+       * correct refusal. Observed live on TR-4521: the model said "₹250 applies
+       * only after more than 3 business days", which is exactly right, and the
+       * message was blocked because 250 appeared in no tool result.
+       */
+      wouldBeAmountInr: 250; thresholdBusinessDays: 3;
+    }
   | { code: 'NOT_APPLICABLE'; reason: string; clauses: ClauseId[] };
 
 /** §1.5: "more than 3 business days past its expected delivery date". */
@@ -37,5 +49,8 @@ export function delayCreditFor(order: Order): DelayCreditResult {
   // Strictly "more than 3" — 3 business days exactly does not qualify.
   return late > THRESHOLD_BUSINESS_DAYS
     ? { code: 'OWED', amountInr: CREDIT_INR, businessDaysLate: late, clauses: ['1.5'] }
-    : { code: 'NOT_OWED', businessDaysLate: late, clauses: ['1.5'] };
+    : {
+      code: 'NOT_OWED', businessDaysLate: late, clauses: ['1.5'],
+      wouldBeAmountInr: CREDIT_INR, thresholdBusinessDays: THRESHOLD_BUSINESS_DAYS,
+    };
 }
