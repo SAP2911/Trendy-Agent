@@ -79,9 +79,23 @@ function stripCommas(raw: string): string {
  * a quantity.
  */
 export function checkNumericGrounding(
-  text: string, toolResults: readonly unknown[],
+  text: string, toolResults: readonly unknown[], userMessage?: string,
 ): Violation[] {
   const grounded = extractGroundedNumbers(toolResults);
+
+  // Numbers the customer typed are theirs to have back. Refusing a demand is
+  // usually phrased by naming it — "I can't give you 30% off" — and blocking
+  // that as an ungrounded number turns a correct refusal into a repair loop
+  // and then an escalation. Observed live: "give me 30% off" produced exactly
+  // that failure. Echoing a customer's own figure asserts nothing about
+  // Trendly's policy or their order, so it cannot be a hallucination; every
+  // figure the model invents unprompted is still caught.
+  if (userMessage) {
+    for (const m of userMessage.match(/\d[\d,]*(?:\.\d+)?/g) ?? []) {
+      grounded.add(stripCommas(m));
+    }
+  }
+
   const violations: Violation[] = [];
   const flagged = new Set<string>();
 

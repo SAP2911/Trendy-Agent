@@ -189,6 +189,7 @@ export async function repairOnce(
   toolResults: unknown[],
   trace: TraceCollector,
   chain: ProviderEntry[] = getProviderChain(),
+  userMessage?: string,
 ): Promise<string> {
   const violationList = violations.map((v) => `- ${v.kind}: ${v.detail}`).join('\n');
   const repairInstructions = `${buildInstructions(ctx)}
@@ -248,6 +249,9 @@ ${JSON.stringify(toolResults)}`;
     toolResults,
     citedClauses: citedFrom(toolResults),
     verifiedCustomerId: ctx.verifiedCustomerId,
+    // Spread conditionally: `exactOptionalPropertyTypes` distinguishes an
+    // absent optional property from one explicitly set to undefined.
+    ...(userMessage === undefined ? {} : { userMessage }),
   };
   const revalidation = repaired
     ? validateOutput(repaired, evidence)
@@ -454,6 +458,7 @@ export async function* runTurn(
     toolResults,
     citedClauses: citedFrom(toolResults),
     verifiedCustomerId: ctx.verifiedCustomerId,
+    userMessage: screen.redacted,
   };
   const validation = validateOutput(text, evidence);
   trace.emit({
@@ -464,7 +469,9 @@ export async function* runTurn(
 
   // ---- 6. REPAIR — one constrained retry; a defective reply is never emitted. ----
   if (validation.verdict === 'violation') {
-    text = await repairOnce(text, validation.violations, ctx, toolResults, trace, chain);
+    text = await repairOnce(
+      text, validation.violations, ctx, toolResults, trace, chain, screen.redacted,
+    );
     yield* trace.drain();
   }
 

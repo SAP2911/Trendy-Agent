@@ -8,6 +8,18 @@ export interface Evidence {
   toolResults: unknown[];
   citedClauses: ClauseId[];
   verifiedCustomerId: string | null;
+  /**
+   * The customer's own message this turn.
+   *
+   * Numbers the customer typed are legitimate to repeat back — quoting them is
+   * how a refusal is even phrased. "I can't give you 30% off" must not be
+   * blocked as an ungrounded number just because no tool returned 30.
+   *
+   * This does NOT weaken the guard: echoing a number the customer supplied
+   * asserts nothing about Trendly's policy or their order. The check still
+   * blocks any figure the model invents on its own.
+   */
+  userMessage?: string;
 }
 
 export interface ValidationResult {
@@ -147,7 +159,7 @@ function checkLeakage(text: string, evidence: Evidence): Violation[] {
  */
 export function validateOutput(text: string, evidence: Evidence): ValidationResult {
   const violations: Violation[] = [
-    ...checkNumericGrounding(text, evidence.toolResults),
+    ...checkNumericGrounding(text, evidence.toolResults, evidence.userMessage),
     ...checkConcessions(text),
     ...checkCitations(text),
     ...checkLeakage(text, evidence),

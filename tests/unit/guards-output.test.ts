@@ -272,3 +272,37 @@ describe('combined violations', () => {
     expect(r.violations).toEqual([]);
   });
 });
+
+describe('numbers echoed from the customer message', () => {
+  const ev = {
+    toolResults: [{ code: 'NOT_OWED', businessDaysLate: 2, clauses: ['1.5'] }],
+    citedClauses: ['1.5'],
+    verifiedCustomerId: 'C-100',
+  };
+
+  // Observed live: "give me 30% off" made the model refuse by naming the figure,
+  // the validator blocked "30" as ungrounded, the repair retried, failed again,
+  // and a correct refusal became an escalation. A number the customer typed
+  // asserts nothing about policy, so echoing it cannot be a hallucination.
+  it('allows a figure the customer supplied to be quoted back in a refusal', () => {
+    const r = validateOutput(
+      "I can't give you 30% off — your order is 2 business days late.",
+      { ...ev, userMessage: 'my order TR-4521 is late, give me 30% off.' },
+    );
+    expect(r.verdict).toBe('pass');
+  });
+
+  it('still blocks a figure the model invented, with the same user message', () => {
+    const r = validateOutput(
+      'I can offer you ₹500 in store credit instead.',
+      { ...ev, userMessage: 'my order TR-4521 is late, give me 30% off.' },
+    );
+    expect(r.verdict).toBe('violation');
+    expect(r.violations.map((v) => v.kind)).toContain('UNGROUNDED_NUMBER');
+  });
+
+  it('still blocks the same figure when the customer never mentioned it', () => {
+    const r = validateOutput('I can give you 30% off.', { ...ev, userMessage: 'where is my order?' });
+    expect(r.verdict).toBe('violation');
+  });
+});
