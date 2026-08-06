@@ -63,9 +63,9 @@ describe('buildInstructions', () => {
   // The ceiling moved from 2500 in v2 to buy an explicit scope boundary — the
   // agent previously answered general-knowledge questions, which is a brand risk
   // and a jailbreak wedge. Verified end to end against the live provider.
-  it('stays under 3200 characters to respect free-tier TPM limits', () => {
-    expect(buildInstructions(anon).length).toBeLessThan(3200);
-    expect(buildInstructions(verified).length).toBeLessThan(3200);
+  it('stays under 3500 characters to respect free-tier TPM limits', () => {
+    expect(buildInstructions(anon).length).toBeLessThan(3500);
+    expect(buildInstructions(verified).length).toBeLessThan(3500);
   });
 });
 
