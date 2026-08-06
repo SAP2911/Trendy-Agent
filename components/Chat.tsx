@@ -11,7 +11,7 @@ import { StarterPrompts } from './StarterPrompts';
 import { Logo } from './Logo';
 import { describeEvent } from './trace-format';
 import {
-  ActivityIcon, CloseIcon, SendIcon, AlertIcon,
+  ActivityIcon, CloseIcon, SendIcon, AlertIcon, PlusIcon,
 } from './icons';
 
 interface ChatMessage {
@@ -73,7 +73,7 @@ export function Chat() {
   // differs between an SSR pass and the client's hydration render (both
   // legitimately call this initialiser once) cannot cause a hydration
   // mismatch; only rendered output can do that.
-  const [conversationId] = useState<string>(() => crypto.randomUUID());
+  const [conversationId, setConversationId] = useState<string>(() => crypto.randomUUID());
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [trace, setTrace] = useState<TraceEvent[]>([]);
   const [correlationId, setCorrelationId] = useState<string | null>(null);
@@ -84,6 +84,28 @@ export function Chat() {
 
   const listRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  /**
+   * Start a fresh conversation without reloading the page.
+   *
+   * A new `conversationId` is essential, not cosmetic: the server keys session
+   * state — including the VERIFIED customer identity — on that id. Reusing it
+   * would leave the previous customer verified, so the next person to type
+   * would inherit their access. Minting a new id drops the session back to
+   * ANONYMOUS, which is exactly what "new chat" has to mean here.
+   */
+  const startNewChat = useCallback(() => {
+    if (busy) return;
+    setConversationId(crypto.randomUUID());
+    setMessages([]);
+    setTrace([]);
+    setCorrelationId(null);
+    setError(null);
+    setInput('');
+    setTraceDrawerOpen(false);
+    if (textareaRef.current) textareaRef.current.style.height = 'auto';
+    textareaRef.current?.focus();
+  }, [busy]);
 
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: 'smooth' });
@@ -188,14 +210,38 @@ export function Chat() {
   return (
     <div className={styles.shell}>
       <header className={styles.header}>
-        <div className={styles.brand}>
+        {/*
+          The brand lock-up doubles as "start over" — the affordance people
+          reach for first. It is a real <button>, not a clickable <div>, so it
+          is keyboard-reachable and announced correctly by screen readers.
+        */}
+        <button
+          type="button"
+          className={styles.brand}
+          onClick={startNewChat}
+          disabled={busy}
+          title="Start a new conversation"
+          aria-label="Trendly Support Assistant — start a new conversation"
+        >
           <Logo />
           <div className={styles.brandText}>
             <h1>Trendly</h1>
             <p>Support Assistant</p>
           </div>
-        </div>
+        </button>
         <div className={styles.headerActions}>
+          {messages.length > 0 && (
+            <button
+              type="button"
+              className={styles.newChat}
+              onClick={startNewChat}
+              disabled={busy}
+              aria-label="Start a new conversation"
+            >
+              <PlusIcon width={16} height={16} />
+              New chat
+            </button>
+          )}
           <button
             type="button"
             className={styles.traceToggle}

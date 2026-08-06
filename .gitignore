@@ -34,3 +34,6 @@ next-env.d.ts
 # local agent config
 .claude/
 .superpowers/
+.env.example
+.vercel
+.env*

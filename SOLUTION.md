@@ -166,6 +166,12 @@ with measurement, which is exactly why the plan deferred them to it.
    not trip it directly, though an invented figure would still be caught by numeric
    grounding.
 6. **No persistence.** RMAs, credits and tickets live in process memory.
+7. **Topical scope is enforced by prompt, not by tool.** The agent refuses general
+   knowledge, maths, politics and coding requests (verified live), but this is the one
+   guardrail without a deterministic backstop. A topic classifier was rejected because
+   its false-positive risk against phrasings like "who is my delivery agent?" exceeds
+   the residual risk it removes. This gap was found by the user in manual testing, not
+   by my tests — worth stating plainly.
 
 ---
 

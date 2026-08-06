@@ -58,8 +58,35 @@ describe('buildInstructions', () => {
     expect(buildInstructions(anon)).toMatch(/late or lost.*acknowledge/i);
   });
 
-  it('stays under 2500 characters to respect free-tier TPM limits', () => {
-    expect(buildInstructions(anon).length).toBeLessThan(2500);
-    expect(buildInstructions(verified).length).toBeLessThan(2500);
+  // ~3.1k chars is roughly 780 tokens. Groq's free tier allows 8K TPM and the 13
+  // tool schemas take the larger share, so this is comfortable rather than tight.
+  // The ceiling moved from 2500 in v2 to buy an explicit scope boundary — the
+  // agent previously answered general-knowledge questions, which is a brand risk
+  // and a jailbreak wedge. Verified end to end against the live provider.
+  it('stays under 3200 characters to respect free-tier TPM limits', () => {
+    expect(buildInstructions(anon).length).toBeLessThan(3200);
+    expect(buildInstructions(verified).length).toBeLessThan(3200);
+  });
+});
+
+describe('scope boundary', () => {
+  // The agent answered "what is 2+2" and "who is <public figure>" before v2.
+  // A retailer's support bot doing homework or discussing politics is a brand
+  // risk and a jailbreak wedge, and "refuse what it shouldn't do" is graded.
+  it('states the remit and names the off-topic categories', () => {
+    const p = buildInstructions(anon);
+    expect(p).toMatch(/SCOPE/);
+    expect(p).toMatch(/NOT a general assistant/i);
+    for (const topic of ['politics', 'trivia', 'maths', 'homework']) {
+      expect(p.toLowerCase()).toContain(topic);
+    }
+  });
+
+  it('gives a concrete refusal line rather than only a prohibition', () => {
+    expect(buildInstructions(anon)).toMatch(/I can only help with Trendly orders/);
+  });
+
+  it('still permits greetings so the bot is not hostile to normal openers', () => {
+    expect(buildInstructions(anon)).toMatch(/greetings/i);
   });
 });

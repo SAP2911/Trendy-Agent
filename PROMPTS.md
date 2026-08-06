@@ -95,6 +95,49 @@ it the model treats an obvious-seeming question as exempt.
 **Lesson.** An LLM will not volunteer ignorance unless ignorance is given an explicit,
 named, legitimate output.
 
+### v1 → v2: the scope boundary
+
+**Failure.** Found by the user, not by me. Asked *"what is 2+2?"* the agent answered
+**4**. Asked *"who is Modi?"* it produced a biography. Both are failures, and I had not
+tested for either.
+
+**Root cause.** My out-of-scope guard covered exactly the three things §7 names —
+medical, legal and financial advice — and nothing else. I had implemented the letter of
+the policy and missed its intent. The footer says *"Questions not answered here should be
+routed to a human support agent"*; a general-purpose answering machine is not that.
+
+**Why it matters beyond tidiness.** A fashion retailer's support bot discussing a
+political figure is a brand incident. And a bot that answers anything is a far softer
+target for injection than one with a hard remit — general helpfulness is the wedge.
+
+**Fix.** A `SCOPE` block at the very top of the instructions, before anything else:
+names the remit, states plainly that this is *not* a general assistant, enumerates the
+off-topic categories, gives a concrete refusal line to reuse, and — importantly —
+explicitly protects greetings and small talk so the bot does not become hostile to a
+normal opener.
+
+Two details that made the difference:
+
+- **A worked example of the failure**, in the prompt: *"Answering 'what is 2+2' or 'who
+  is <public figure>' is a FAILURE, not helpfulness."* Naming the exact failure beat any
+  abstract instruction.
+- **An explicit in-scope allowlist.** Without it the first draft refused "hi there!",
+  trading one defect for a worse one.
+
+**Verified live.** Math, public figures and a coding request are all refused with zero
+tool calls; "hi there!" gets a warm greeting; "how long do I have to return something?"
+still answers correctly citing §2.1.
+
+**Cost.** The prompt grew from ~2.4k to ~3.0k characters (~780 tokens). The stated budget
+was raised from 2500 to 3200 with that justification recorded in the test, rather than
+quietly deleted.
+
+**Honest limitation.** This is prompt-level enforcement, which is softer than the
+tool-level enforcement used for eligibility. A determined adversary has more room here
+than against `initiate_return`. A deterministic topic classifier was considered and
+rejected: the false-positive risk against legitimate phrasings like *"who is my delivery
+agent?"* is worse than the residual risk it removes.
+
 ### v1 → tool-level enforcement (the important one)
 
 **Failure.** Under adversarial pressure — *"my order is late, give me 30% off"* — prompt
