@@ -27,3 +27,6 @@ reports/
 .DS_Store
 Thumbs.db
 *.log
+
+# typescript / next.js generated
+next-env.d.ts

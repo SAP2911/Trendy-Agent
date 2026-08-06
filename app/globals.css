@@ -1,0 +1,169 @@
+/*
+ * Design tokens for Trendly Support Assistant.
+ *
+ * Palette intent: an editorial fashion retailer, not a SaaS dashboard —
+ * warm cream/ink neutrals with a single terracotta accent, generous
+ * whitespace, real type hierarchy (serif display, sans body). The trace
+ * panel deliberately does NOT use these tokens for its background — it
+ * keeps a fixed dark "instrument readout" palette in every app theme (see
+ * TracePanel.module.css) so the contrast between the warm conversational
+ * pane and the technical trace pane reads the same way in light or dark
+ * mode. That contrast is the visual argument of the product.
+ */
+
+:root {
+  color-scheme: light;
+
+  --font-display: Iowan Old Style, Georgia, Cambria, 'Times New Roman', serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  --bg: #f7f2e9;
+  --surface: #fffdfa;
+  --surface-raised: #ffffff;
+  --surface-muted: #efe7d8;
+  --border: #e2d8c3;
+  --border-strong: #cdbf9f;
+  --text: #241f19;
+  --text-muted: #6f6455;
+  --text-faint: #99897b;
+
+  --accent: #b5502f;
+  --accent-hover: #9c4227;
+  --accent-contrast: #fff8f2;
+  --accent-soft: #f3ddce;
+  --accent-soft-border: #e3bfa4;
+
+  --user-bubble-bg: var(--accent-soft);
+  --user-bubble-border: var(--accent-soft-border);
+  --user-bubble-text: #582813;
+
+  --assistant-bubble-bg: var(--surface-raised);
+  --assistant-bubble-border: var(--border);
+  --assistant-bubble-text: var(--text);
+
+  --danger: #a5311f;
+  --danger-soft: #f6e1dc;
+  --danger-soft-border: #e5b7ab;
+
+  --focus-ring: #b5502f;
+  --shadow-soft: 0 1px 2px rgba(60, 45, 25, 0.06), 0 8px 24px -12px rgba(60, 45, 25, 0.18);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #16130f;
+  --surface: #1d1812;
+  --surface-raised: #241d15;
+  --surface-muted: #2a2118;
+  --border: #3a2f22;
+  --border-strong: #4f4132;
+  --text: #f3ece0;
+  --text-muted: #b6a893;
+  --text-faint: #8c7d69;
+
+  --accent: #e3865a;
+  --accent-hover: #ec9a72;
+  --accent-contrast: #211208;
+  --accent-soft: #3a2317;
+  --accent-soft-border: #5c3a26;
+
+  --user-bubble-bg: var(--accent-soft);
+  --user-bubble-border: var(--accent-soft-border);
+  --user-bubble-text: #f7dcc7;
+
+  --assistant-bubble-bg: var(--surface-raised);
+  --assistant-bubble-border: var(--border);
+  --assistant-bubble-text: var(--text);
+
+  --danger: #e2685a;
+  --danger-soft: #3a1f1a;
+  --danger-soft-border: #5c332b;
+
+  --focus-ring: #e3865a;
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35), 0 12px 32px -16px rgba(0, 0, 0, 0.6);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+textarea,
+input {
+  font-family: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--user-bubble-text);
+}
+
+/* Custom scrollbars — subtle, matches the warm palette instead of the OS default grey. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
