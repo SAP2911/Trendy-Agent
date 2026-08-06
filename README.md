@@ -13,6 +13,7 @@ what it must not do.
 
 **App:** <https://trendly-support-agent-kappa.vercel.app>
 **Repo:** <https://github.com/SAP2911/Trendy-Agent>
+**Demo video (3–5 min):** <https://www.loom.com/share/29ddbb9c89424946a499bd03759a6681>
 
 ---
 
