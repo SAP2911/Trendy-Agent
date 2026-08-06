@@ -1,7 +1,5 @@
 # Trendly Agentic Support Assistant — Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
-
 **Goal:** Build a multi-turn support agent for Trendly that resolves order-status, policy, and return/exchange requests end to end over a fixed 10-order dataset, escalating cleanly to a human when it should and refusing what it must not do.
 
 **Architecture:** The LLM decides *what to do*; deterministic TypeScript decides *what is true*. A hand-written orchestration loop wraps AI SDK 7's `streamText`, calling 13 Zod-typed tools. Return eligibility, business-day math, and refund timelines are pure functions that emit structured verdicts carrying policy clause IDs. Input guards run pre-model, output validators run pre-send, and a repair loop stops defective messages from ever being emitted.

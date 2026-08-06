@@ -37,3 +37,11 @@ next-env.d.ts
 .env.example
 .vercel
 .env*
+
+# personal agent tooling config, not project code
+AGENTS.md
+CLAUDE.md
+
+# client assignment brief - never republish
+FDE Intern - Assignment.pdf
+*.Assignment.pdf
