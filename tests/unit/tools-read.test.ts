@@ -167,6 +167,18 @@ describe('compute_refund_timeline identity binding', () => {
 });
 
 describe('check_delay_credit identity binding', () => {
+  // §1.5 counts business days from the expected delivery date, so these verdicts
+  // move as real time advances. Pin the clock: this suite once passed only because
+  // the wall clock happened to read 2026-08-04. On 2026-08-06 it failed — TR-4521
+  // had genuinely crossed from 2 to 4 business days late, so OWED became the
+  // CORRECT answer and the unpinned assertion was the bug.
+  const ORIGINAL_AS_OF = process.env.TRENDLY_AS_OF;
+  beforeEach(() => { process.env.TRENDLY_AS_OF = '2026-08-04T12:00:00Z'; });
+  afterEach(() => {
+    if (ORIGINAL_AS_OF === undefined) delete process.env.TRENDLY_AS_OF;
+    else process.env.TRENDLY_AS_OF = ORIGINAL_AS_OF;
+  });
+
   it('owes credit for the genuinely delayed order', () => {
     const r = checkDelayCreditImpl({ orderId: 'TR-4525' }, ctx('C-103'));
     expect(r.code).toBe('OWED');
@@ -175,6 +187,13 @@ describe('check_delay_credit identity binding', () => {
   it('does not owe credit for an order only 2 business days late', () => {
     const r = checkDelayCreditImpl({ orderId: 'TR-4521' }, ctx('C-100'));
     expect(r.code).toBe('NOT_OWED');
+  });
+
+  it('crosses to OWED once the clock advances past 3 business days', () => {
+    // The same order, two days later: Fri 31 Jul -> Thu 6 Aug is 4 business days.
+    process.env.TRENDLY_AS_OF = '2026-08-06T12:00:00Z';
+    const r = checkDelayCreditImpl({ orderId: 'TR-4521' }, ctx('C-100'));
+    expect(r.code).toBe('OWED');
   });
 
   it('denies for another customer order, identically to a missing one', () => {
