@@ -30,3 +30,7 @@ Thumbs.db
 
 # typescript / next.js generated
 next-env.d.ts
+
+# local agent config
+.claude/
+.superpowers/
