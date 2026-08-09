@@ -102,10 +102,27 @@ function topLevelResultCodes(trace: TraceEvent[]): Set<string> {
 }
 
 /** Deep-collected by loop.ts's own citedFrom() before the trace event is built — see lib/agent/loop.ts. */
-function citedClauseIds(trace: TraceEvent[]): Set<string> {
+/**
+ * Clause ids the customer was actually shown, or that grounded the answer.
+ *
+ * Both sources count. Reading only tool results misses the case that matters
+ * most — the agent naming the clause in prose ("policy clause 2.1") when the
+ * tool that produced the fact did not carry a `clauses` field. Reading only
+ * the text would miss a correctly grounded answer that paraphrases. The
+ * assertion is "this clause backed the reply", so the union is the honest set.
+ */
+function citedClauseIds(trace: TraceEvent[], replyText: string): Set<string> {
   const clauses = new Set<string>();
   for (const e of trace) {
     if (e.type === 'tool_result' && e.clauses) for (const c of e.clauses) clauses.add(c);
+  }
+  // "§2.1", "clause 2.1", "policy 2.1", "section 2.1", "(2.1)" — the shapes the
+  // model actually produces, matching lib/guards/output.ts's own citation regex.
+  for (const m of replyText.matchAll(
+    /(?:§|clause\s+|policy\s+(?:clause\s+)?|section\s+)(\d+(?:\.\d+)?)|\((\d+\.\d+)\)/gi,
+  )) {
+    const id = m[1] ?? m[2];
+    if (id) clauses.add(id);
   }
   return clauses;
 }
@@ -146,7 +163,7 @@ function evaluateTurn(
     }
   }
 
-  const clauses = citedClauseIds(result.trace);
+  const clauses = citedClauseIds(result.trace, result.text);
   for (const expected of turn.expect.citedClauses ?? []) {
     if (!clauses.has(expected)) {
       fail(

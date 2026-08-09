@@ -1,0 +1,4448 @@
+{
+  "meta": {
+    "scenarioId": "escalation-lost-parcel",
+    "modelId": "openai/gpt-oss-120b",
+    "provider": "groq",
+    "recordedAt": "2026-08-09T14:35:28.677Z",
+    "complete": true
+  },
+  "entries": [
+    {
+      "requestPreview": {
+        "toolNames": [
+          "escalate_to_human",
+          "search_policy",
+          "verify_customer"
+        ],
+        "lastMessagePreview": "{\"role\":\"user\",\"content\":[{\"type\":\"text\",\"text\":\"My email is marcus.bell@example.com. My order TR-4526 never arrived and I want to return it.\\n\"}]}"
+      },
+      "parts": [
+        {
+          "type": "stream-start",
+          "warnings": []
+        },
+        {
+          "type": "response-metadata",
+          "id": "chatcmpl-0f28c16e-2411-48a3-a0e0-e6d3eaa42640",
+          "modelId": "openai/gpt-oss-120b",
+          "timestamp": "2026-08-09T14:34:36.000Z"
+        },
+        {
+          "type": "reasoning-start",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " need"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " verify"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " customer"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " first"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Use"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " verify"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_customer"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " with"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " contact"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " email"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Then"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " after"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " verification"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " look"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " up"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " and"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " check"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " return"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " eligibility"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " also"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " for"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " parcels"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " The"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " user"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " says"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " never"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " arrived"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " and"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " wants"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " return"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " it"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " need"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " check"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " if"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " is"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " ("
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " "
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "1"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "6"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ")."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Lik"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "ely"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " need"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " check"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " status"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " maybe"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " not"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " available"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " via"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " tool"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " There's"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " no"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " tool"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lookup"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " status"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " besides"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " perhaps"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lookup"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "?"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Not"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " listed"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Only"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " verify"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_customer"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " search"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " and"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " escalate"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_h"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "uman"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " There's"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " no"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lookup"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " tool"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " but"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " for"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " parcels"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " search"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " for"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " \""
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " parcels"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "\"."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Then"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " may"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " need"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " escalate"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " human"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " because"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " parcel"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " handling"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " may"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " require"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " human"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " However"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " also"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " provide"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ":"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " parcels"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ":"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " maybe"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " they"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " get"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " refund"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " or"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " replacement"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " should"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " first"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " verify"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Then"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " search"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " for"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " parcels"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " and"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " return"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " window"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Use"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " search"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " with"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " query"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ":"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " \""
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " never"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " arrived"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " return"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "\"."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Let's"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " do"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " verification"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " first"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-end",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "tool-input-start",
+          "id": "fc_1adc5946-549b-43be-9f8e-feb5d861268f",
+          "toolName": "verify_customer"
+        },
+        {
+          "type": "tool-input-delta",
+          "id": "fc_1adc5946-549b-43be-9f8e-feb5d861268f",
+          "delta": "{\"contact\":\"marcus.bell@example.com\"}"
+        },
+        {
+          "type": "tool-input-end",
+          "id": "fc_1adc5946-549b-43be-9f8e-feb5d861268f"
+        },
+        {
+          "type": "tool-call",
+          "toolCallId": "fc_1adc5946-549b-43be-9f8e-feb5d861268f",
+          "toolName": "verify_customer",
+          "input": "{\"contact\":\"marcus.bell@example.com\"}"
+        },
+        {
+          "type": "finish",
+          "finishReason": {
+            "unified": "tool-calls",
+            "raw": "tool_calls"
+          },
+          "usage": {
+            "inputTokens": {
+              "total": 1423,
+              "noCache": 143,
+              "cacheRead": 1280
+            },
+            "outputTokens": {
+              "total": 225,
+              "text": 32,
+              "reasoning": 193
+            },
+            "raw": {
+              "prompt_tokens": 1423,
+              "completion_tokens": 225,
+              "total_tokens": 1648,
+              "prompt_tokens_details": {
+                "cached_tokens": 1280
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 193
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requestPreview": {
+        "toolNames": [
+          "check_delay_credit",
+          "check_exchange_eligibility",
+          "check_return_eligibility",
+          "compute_refund_timeline",
+          "escalate_to_human",
+          "initiate_exchange",
+          "initiate_return",
+          "issue_delay_credit",
+          "list_customer_orders",
+          "lookup_order",
+          "report_damaged_item",
+          "search_policy",
+          "verify_customer"
+        ],
+        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_1adc5946-549b-43be-9f8e-feb5d861268f\",\"toolName\":\"verify_customer\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"VERIFIED\",\"customerId\":\"C-101\",\"name\":\"Marcus Bell\",\"message\":\"Identity verified for Marcus Bell.\"}}}]}"
+      },
+      "parts": [
+        {
+          "type": "stream-start",
+          "warnings": []
+        },
+        {
+          "type": "response-metadata",
+          "id": "chatcmpl-255d916e-8d91-4fb3-bc8e-59d60a910a23",
+          "modelId": "openai/gpt-oss-120b",
+          "timestamp": "2026-08-09T14:34:39.000Z"
+        },
+        {
+          "type": "reasoning-start",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "Now"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " have"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " verified"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " need"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " handle"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " \""
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " TR"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "-"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "452"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "6"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " never"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " arrived"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " and"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " I"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " want"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " return"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " it"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ".\""
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " need"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " check"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " existence"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "?"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " There's"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " no"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lookup"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " tool"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " defined"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " but"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " may"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " need"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " call"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lookup"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Wait"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " tools"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " list"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " includes"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lookup"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Yes"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " have"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lookup"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " So"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " should"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " call"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lookup"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " for"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " TR"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "-"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "452"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "6"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-end",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "tool-input-start",
+          "id": "fc_dd0c39bd-6ab0-475c-aab5-a694a04c4478",
+          "toolName": "lookup_order"
+        },
+        {
+          "type": "tool-input-delta",
+          "id": "fc_dd0c39bd-6ab0-475c-aab5-a694a04c4478",
+          "delta": "{\"orderId\":\"TR-4526\"}"
+        },
+        {
+          "type": "tool-input-end",
+          "id": "fc_dd0c39bd-6ab0-475c-aab5-a694a04c4478"
+        },
+        {
+          "type": "tool-call",
+          "toolCallId": "fc_dd0c39bd-6ab0-475c-aab5-a694a04c4478",
+          "toolName": "lookup_order",
+          "input": "{\"orderId\":\"TR-4526\"}"
+        },
+        {
+          "type": "finish",
+          "finishReason": {
+            "unified": "tool-calls",
+            "raw": "tool_calls"
+          },
+          "usage": {
+            "inputTokens": {
+              "total": 2634,
+              "noCache": 330,
+              "cacheRead": 2304
+            },
+            "outputTokens": {
+              "total": 99,
+              "text": 26,
+              "reasoning": 73
+            },
+            "raw": {
+              "prompt_tokens": 2634,
+              "completion_tokens": 99,
+              "total_tokens": 2733,
+              "prompt_tokens_details": {
+                "cached_tokens": 2304
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 73
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requestPreview": {
+        "toolNames": [
+          "check_delay_credit",
+          "check_exchange_eligibility",
+          "check_return_eligibility",
+          "compute_refund_timeline",
+          "escalate_to_human",
+          "initiate_exchange",
+          "initiate_return",
+          "issue_delay_credit",
+          "list_customer_orders",
+          "lookup_order",
+          "report_damaged_item",
+          "search_policy",
+          "verify_customer"
+        ],
+        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_dd0c39bd-6ab0-475c-aab5-a694a04c4478\",\"toolName\":\"lookup_order\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"OK\",\"evaluatedAt\":\"2026-08-04\",\"order\":{\"orderId\":\"TR-4526\",\"status\":\"lost_in_transit\",\"placedAt\":\"2026-06-28T13:00:00Z\",\"delivere"
+      },
+      "parts": [
+        {
+          "type": "stream-start",
+          "warnings": []
+        },
+        {
+          "type": "response-metadata",
+          "id": "chatcmpl-01d252eb-d821-424c-9cbd-70fdddf21b20",
+          "modelId": "openai/gpt-oss-120b",
+          "timestamp": "2026-08-09T14:34:41.000Z"
+        },
+        {
+          "type": "reasoning-start",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "Now"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " status"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_in"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_trans"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "it"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " The"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " user"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " wants"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " return"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Since"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " not"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " delivered"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " cannot"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " return"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " because"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " not"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " received"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " likely"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " says"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " if"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " you"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " request"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " refund"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " or"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " replacement"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " should"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " consult"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Search"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " for"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " \""
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " parcels"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "\"."
+        },
+        {
+          "type": "reasoning-end",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "tool-input-start",
+          "id": "fc_c8e26f3b-2938-4fe9-a318-15ca3ecb6be7",
+          "toolName": "search_policy"
+        },
+        {
+          "type": "tool-input-delta",
+          "id": "fc_c8e26f3b-2938-4fe9-a318-15ca3ecb6be7",
+          "delta": "{\"query\":\"lost parcels\"}"
+        },
+        {
+          "type": "tool-input-end",
+          "id": "fc_c8e26f3b-2938-4fe9-a318-15ca3ecb6be7"
+        },
+        {
+          "type": "tool-call",
+          "toolCallId": "fc_c8e26f3b-2938-4fe9-a318-15ca3ecb6be7",
+          "toolName": "search_policy",
+          "input": "{\"query\":\"lost parcels\"}"
+        },
+        {
+          "type": "finish",
+          "finishReason": {
+            "unified": "tool-calls",
+            "raw": "tool_calls"
+          },
+          "usage": {
+            "inputTokens": {
+              "total": 2878,
+              "noCache": 2110,
+              "cacheRead": 768
+            },
+            "outputTokens": {
+              "total": 73,
+              "text": 23,
+              "reasoning": 50
+            },
+            "raw": {
+              "prompt_tokens": 2878,
+              "completion_tokens": 73,
+              "total_tokens": 2951,
+              "prompt_tokens_details": {
+                "cached_tokens": 768
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 50
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requestPreview": {
+        "toolNames": [
+          "check_delay_credit",
+          "check_exchange_eligibility",
+          "check_return_eligibility",
+          "compute_refund_timeline",
+          "escalate_to_human",
+          "initiate_exchange",
+          "initiate_return",
+          "issue_delay_credit",
+          "list_customer_orders",
+          "lookup_order",
+          "report_damaged_item",
+          "search_policy",
+          "verify_customer"
+        ],
+        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_c8e26f3b-2938-4fe9-a318-15ca3ecb6be7\",\"toolName\":\"search_policy\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"HITS\",\"hits\":[{\"clause\":{\"id\":\"1.6\",\"section\":\"Shipping\",\"title\":\"Lost parcels\",\"text\":\"If a carrier marks a parcel lost, or if a"
+      },
+      "parts": [
+        {
+          "type": "stream-start",
+          "warnings": []
+        },
+        {
+          "type": "response-metadata",
+          "id": "chatcmpl-e4619713-a6e8-42a6-b1e2-0ed4e1cb75d3",
+          "modelId": "openai/gpt-oss-120b",
+          "timestamp": "2026-08-09T14:34:42.000Z"
+        },
+        {
+          "type": "reasoning-start",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " need"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " inform"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " the"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " customer"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " about"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " parcel"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " and"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " that"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " will"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " escalate"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " human"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Also"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " maybe"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " check"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " if"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " they"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " are"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " eligible"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " for"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " delay"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "?"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " expected"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " "
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "202"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "6"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "-"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "07"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "-"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "06"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " today"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " "
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "202"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "6"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "-"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "08"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "-"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "04"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " definitely"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " delayed"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " >"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "3"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " business"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " days"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " So"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " they"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " may"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " be"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " eligible"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " for"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " ₹"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "250"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " check"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " check"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_delay"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-end",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "tool-input-start",
+          "id": "fc_d5061871-5d3b-4ac6-9fcf-b7a4ef2180cd",
+          "toolName": "check_delay_credit"
+        },
+        {
+          "type": "tool-input-delta",
+          "id": "fc_d5061871-5d3b-4ac6-9fcf-b7a4ef2180cd",
+          "delta": "{\"orderId\":\"TR-4526\"}"
+        },
+        {
+          "type": "tool-input-end",
+          "id": "fc_d5061871-5d3b-4ac6-9fcf-b7a4ef2180cd"
+        },
+        {
+          "type": "tool-call",
+          "toolCallId": "fc_d5061871-5d3b-4ac6-9fcf-b7a4ef2180cd",
+          "toolName": "check_delay_credit",
+          "input": "{\"orderId\":\"TR-4526\"}"
+        },
+        {
+          "type": "finish",
+          "finishReason": {
+            "unified": "tool-calls",
+            "raw": "tool_calls"
+          },
+          "usage": {
+            "inputTokens": {
+              "total": 3081,
+              "noCache": 777,
+              "cacheRead": 2304
+            },
+            "outputTokens": {
+              "total": 97,
+              "text": 24,
+              "reasoning": 73
+            },
+            "raw": {
+              "prompt_tokens": 3081,
+              "completion_tokens": 97,
+              "total_tokens": 3178,
+              "prompt_tokens_details": {
+                "cached_tokens": 2304
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 73
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requestPreview": {
+        "toolNames": [
+          "check_delay_credit",
+          "check_exchange_eligibility",
+          "check_return_eligibility",
+          "compute_refund_timeline",
+          "escalate_to_human",
+          "initiate_exchange",
+          "initiate_return",
+          "issue_delay_credit",
+          "list_customer_orders",
+          "lookup_order",
+          "report_damaged_item",
+          "search_policy",
+          "verify_customer"
+        ],
+        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_d5061871-5d3b-4ac6-9fcf-b7a4ef2180cd\",\"toolName\":\"check_delay_credit\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"OWED\",\"amountInr\":250,\"businessDaysLate\":21,\"clauses\":[\"1.5\"],\"orderId\":\"TR-4526\"}}}]}"
+      },
+      "parts": [
+        {
+          "type": "stream-start",
+          "warnings": []
+        },
+        {
+          "type": "response-metadata",
+          "id": "chatcmpl-ad982b8c-feba-4bba-8b6f-6a10175ed4ba",
+          "modelId": "openai/gpt-oss-120b",
+          "timestamp": "2026-08-09T14:34:44.000Z"
+        },
+        {
+          "type": "reasoning-start",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "Now"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " offer"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " the"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " ₹"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "250"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " if"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " they"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " want"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " But"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " the"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " user"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " wants"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " return"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " not"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " a"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " says"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " parcels"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " are"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " handled"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " by"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " human"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " for"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " replacement"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " or"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " refund"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " So"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " should"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " inform"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " them"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " of"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " that"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " and"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " also"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " mention"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " the"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " delay"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " is"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " available"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " issue"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " the"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " via"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " issue"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_delay"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Should"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " issue"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " automatically"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "?"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Probably"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " ask"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " if"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " they'd"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " like"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " the"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " but"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " also"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " proactively"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " issue"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " as"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " per"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "?"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " The"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " instruction"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ":"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " \""
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "Never"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " offer"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " a"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " discount"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " coupon"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " waiver"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " or"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " goodwill"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " (§"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "7"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ")."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " The"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " ONLY"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Trend"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "ly"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " author"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "ises"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " is"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " the"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " ₹"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "250"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " delayed"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "-order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " and"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " only"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " after"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " check"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_delay"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " confirms"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " OW"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "ED"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " —"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " issued"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " via"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " issue"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_delay"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " never"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " promised"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " from"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " your"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " own"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " arithmetic"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ".\""
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " have"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " confirmed"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " OW"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "ED"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " so"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " issue"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " it"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " should"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " inform"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " them"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " and"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " then"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " issue"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Let's"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " issue"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " credit"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-end",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "tool-input-start",
+          "id": "fc_804d3056-f0be-4bbc-a0ba-b91753cf8012",
+          "toolName": "issue_delay_credit"
+        },
+        {
+          "type": "tool-input-delta",
+          "id": "fc_804d3056-f0be-4bbc-a0ba-b91753cf8012",
+          "delta": "{\"orderId\":\"TR-4526\"}"
+        },
+        {
+          "type": "tool-input-end",
+          "id": "fc_804d3056-f0be-4bbc-a0ba-b91753cf8012"
+        },
+        {
+          "type": "tool-call",
+          "toolCallId": "fc_804d3056-f0be-4bbc-a0ba-b91753cf8012",
+          "toolName": "issue_delay_credit",
+          "input": "{\"orderId\":\"TR-4526\"}"
+        },
+        {
+          "type": "finish",
+          "finishReason": {
+            "unified": "tool-calls",
+            "raw": "tool_calls"
+          },
+          "usage": {
+            "inputTokens": {
+              "total": 3224,
+              "noCache": 920,
+              "cacheRead": 2304
+            },
+            "outputTokens": {
+              "total": 193,
+              "text": 24,
+              "reasoning": 169
+            },
+            "raw": {
+              "prompt_tokens": 3224,
+              "completion_tokens": 193,
+              "total_tokens": 3417,
+              "prompt_tokens_details": {
+                "cached_tokens": 2304
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 169
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requestPreview": {
+        "toolNames": [
+          "check_delay_credit",
+          "check_exchange_eligibility",
+          "check_return_eligibility",
+          "compute_refund_timeline",
+          "escalate_to_human",
+          "initiate_exchange",
+          "initiate_return",
+          "issue_delay_credit",
+          "list_customer_orders",
+          "lookup_order",
+          "report_damaged_item",
+          "search_policy",
+          "verify_customer"
+        ],
+        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_804d3056-f0be-4bbc-a0ba-b91753cf8012\",\"toolName\":\"issue_delay_credit\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"CREDIT_ISSUED\",\"creditId\":\"CRD-00001\",\"amountInr\":250,\"alreadyExisted\":false,\"clauses\":[\"1.5\"]}}}]}"
+      },
+      "parts": [
+        {
+          "type": "stream-start",
+          "warnings": []
+        },
+        {
+          "type": "response-metadata",
+          "id": "chatcmpl-bac7a421-333b-4e4b-aa16-913d3af2c107",
+          "modelId": "openai/gpt-oss-120b",
+          "timestamp": "2026-08-09T14:34:49.000Z"
+        },
+        {
+          "type": "reasoning-start",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "Now"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " need"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " handle"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lost"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " parcel"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " claim"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Must"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " escalate"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " human"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Use"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " escalate"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_h"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "uman"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " with"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " reason"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "Code"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " maybe"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " \""
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "LO"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "ST"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_P"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "ARC"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "EL"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "\"."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Provide"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " situation"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " and"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " suggested"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "Resolution"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Use"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " policy"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " refs"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " "
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "1"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "6"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Also"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " note"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " that"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " they"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " want"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " refund"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " or"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " replacement"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " We'll"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " propose"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " refund"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-end",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "tool-input-start",
+          "id": "fc_005aae8a-264c-4bb8-a520-f238f3767434",
+          "toolName": "escalate_to_human"
+        },
+        {
+          "type": "tool-input-delta",
+          "id": "fc_005aae8a-264c-4bb8-a520-f238f3767434",
+          "delta": "{\"attempted\":[\"verify_customer\",\"lookup_order\",\"search_policy:1.6\",\"check_delay_credit\",\"issue_delay_credit\"],\"orderIds\":[\"TR-4526\"],\"policyRefs\":[\"1.6\",\"1.5\"],\"reasonCode\":\"LOST_PARCEL\",\"situation\":\"Customer Marcus Bell (email marcus.bell@example.com) reports order TR-4526 was never delivered (status: lost_in_transit). They request a return.\",\"suggestedResolution\":\"Contact the carrier to confirm loss. Offer the customer a choice of a free replacement or a full refund as per policy clause 1.6. The ₹250 delay credit has already been issued.\"}"
+        },
+        {
+          "type": "tool-input-end",
+          "id": "fc_005aae8a-264c-4bb8-a520-f238f3767434"
+        },
+        {
+          "type": "tool-call",
+          "toolCallId": "fc_005aae8a-264c-4bb8-a520-f238f3767434",
+          "toolName": "escalate_to_human",
+          "input": "{\"attempted\":[\"verify_customer\",\"lookup_order\",\"search_policy:1.6\",\"check_delay_credit\",\"issue_delay_credit\"],\"orderIds\":[\"TR-4526\"],\"policyRefs\":[\"1.6\",\"1.5\"],\"reasonCode\":\"LOST_PARCEL\",\"situation\":\"Customer Marcus Bell (email marcus.bell@example.com) reports order TR-4526 was never delivered (status: lost_in_transit). They request a return.\",\"suggestedResolution\":\"Contact the carrier to confirm loss. Offer the customer a choice of a free replacement or a full refund as per policy clause 1.6. The ₹250 delay credit has already been issued.\"}"
+        },
+        {
+          "type": "finish",
+          "finishReason": {
+            "unified": "tool-calls",
+            "raw": "tool_calls"
+          },
+          "usage": {
+            "inputTokens": {
+              "total": 3468,
+              "noCache": 1164,
+              "cacheRead": 2304
+            },
+            "outputTokens": {
+              "total": 233,
+              "text": 175,
+              "reasoning": 58
+            },
+            "raw": {
+              "prompt_tokens": 3468,
+              "completion_tokens": 233,
+              "total_tokens": 3701,
+              "prompt_tokens_details": {
+                "cached_tokens": 2304
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 58
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requestPreview": {
+        "toolNames": [
+          "check_delay_credit",
+          "check_exchange_eligibility",
+          "check_return_eligibility",
+          "compute_refund_timeline",
+          "escalate_to_human",
+          "initiate_exchange",
+          "initiate_return",
+          "issue_delay_credit",
+          "list_customer_orders",
+          "lookup_order",
+          "report_damaged_item",
+          "search_policy",
+          "verify_customer"
+        ],
+        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_005aae8a-264c-4bb8-a520-f238f3767434\",\"toolName\":\"escalate_to_human\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"INVALID_REASON_CODE\",\"allowed\":[\"LOST_PARCEL_CLAIM\",\"COD_REFUND_BANK_DETAILS\",\"POLICY_NOT_COVERED\",\"SECOND_EXCHANGE_REQUEST\","
+      },
+      "parts": [
+        {
+          "type": "stream-start",
+          "warnings": []
+        },
+        {
+          "type": "response-metadata",
+          "id": "chatcmpl-b36ee00c-f1f5-4283-8d15-6263213a9c5c",
+          "modelId": "openai/gpt-oss-120b",
+          "timestamp": "2026-08-09T14:35:02.000Z"
+        },
+        {
+          "type": "reasoning-start",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " need"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " a"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " valid"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " reason"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " code"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Allowed"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " include"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " LOST"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_P"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "ARC"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "EL"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_C"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "LA"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "IM"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Use"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " that"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-end",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "tool-input-start",
+          "id": "fc_06ebd303-a419-4dd4-aa80-804a5923bbde",
+          "toolName": "escalate_to_human"
+        },
+        {
+          "type": "tool-input-delta",
+          "id": "fc_06ebd303-a419-4dd4-aa80-804a5923bbde",
+          "delta": "{\"attempted\":[\"verify_customer\",\"lookup_order\",\"search_policy:1.6\",\"check_delay_credit\",\"issue_delay_credit\"],\"orderIds\":[\"TR-4526\"],\"policyRefs\":[\"1.6\",\"1.5\"],\"reasonCode\":\"LOST_PARCEL_CLAIM\",\"situation\":\"Customer Marcus Bell (email marcus.bell@example.com) reports order TR-4526 was never delivered (status: lost_in_transit). They request a return.\",\"suggestedResolution\":\"Contact the carrier to confirm loss. Offer the customer a choice of a free replacement or a full refund as per policy clause 1.6. The ₹250 delay credit has already been issued.\"}"
+        },
+        {
+          "type": "tool-input-end",
+          "id": "fc_06ebd303-a419-4dd4-aa80-804a5923bbde"
+        },
+        {
+          "type": "tool-call",
+          "toolCallId": "fc_06ebd303-a419-4dd4-aa80-804a5923bbde",
+          "toolName": "escalate_to_human",
+          "input": "{\"attempted\":[\"verify_customer\",\"lookup_order\",\"search_policy:1.6\",\"check_delay_credit\",\"issue_delay_credit\"],\"orderIds\":[\"TR-4526\"],\"policyRefs\":[\"1.6\",\"1.5\"],\"reasonCode\":\"LOST_PARCEL_CLAIM\",\"situation\":\"Customer Marcus Bell (email marcus.bell@example.com) reports order TR-4526 was never delivered (status: lost_in_transit). They request a return.\",\"suggestedResolution\":\"Contact the carrier to confirm loss. Offer the customer a choice of a free replacement or a full refund as per policy clause 1.6. The ₹250 delay credit has already been issued.\"}"
+        },
+        {
+          "type": "finish",
+          "finishReason": {
+            "unified": "tool-calls",
+            "raw": "tool_calls"
+          },
+          "usage": {
+            "inputTokens": {
+              "total": 3771,
+              "noCache": 3771
+            },
+            "outputTokens": {
+              "total": 178,
+              "text": 157,
+              "reasoning": 21
+            },
+            "raw": {
+              "prompt_tokens": 3771,
+              "completion_tokens": 178,
+              "total_tokens": 3949,
+              "completion_tokens_details": {
+                "reasoning_tokens": 21
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requestPreview": {
+        "toolNames": [
+          "escalate_to_human",
+          "search_policy",
+          "verify_customer"
+        ],
+        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_06ebd303-a419-4dd4-aa80-804a5923bbde\",\"toolName\":\"escalate_to_human\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"ESCALATED\",\"ticketId\":\"TKT-00002\",\"message\":\"A human agent will pick this up. Trendly support hours are 9:00 AM – 9:00 PM IST"
+      },
+      "parts": [
+        {
+          "type": "stream-start",
+          "warnings": []
+        },
+        {
+          "type": "response-metadata",
+          "id": "chatcmpl-5c858dd3-53ae-4312-b1be-e142a6f347f7",
+          "modelId": "openai/gpt-oss-120b",
+          "timestamp": "2026-08-09T14:35:27.000Z"
+        },
+        {
+          "type": "text-start",
+          "id": "txt-0"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "I"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "’m"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " sorry"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " your"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " order"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " "
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "TR"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "‑"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "452"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "6"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " didn"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "’t"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " arrive"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "."
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " Since"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " the"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " carrier"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " has"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " marked"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " it"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " as"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " lost"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": ","
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " this"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " is"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " handled"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " as"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " a"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " lost"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "‑"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "parcel"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " claim"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " ("
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "policy"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " "
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "1"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "."
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "6"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": ")."
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " A"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " human"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " agent"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " will"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " review"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " the"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " case"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " and"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " offer"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " you"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " either"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " a"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " free"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " replacement"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " or"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " a"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " full"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " refund"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": ","
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " whichever"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " you"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " prefer"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "."
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "  \n\n"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "We"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "’ve"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " also"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " applied"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " the"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " ₹"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "250"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " delayed"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "‑"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "order"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " credit"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " you"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "’re"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " entitled"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " to"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " ("
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "policy"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " "
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "1"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "."
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "5"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": ")."
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "  \n\n"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "A"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " support"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " ticket"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " ("
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "T"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "KT"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "‑"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "000"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "02"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": ")"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " has"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " been"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " created"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " and"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " a"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " colleague"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " will"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " be"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " in"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " touch"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " shortly"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "."
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " If"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " you"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " have"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " any"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " other"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " questions"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " about"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " this"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " order"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": ","
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " just"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " let"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " me"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " know"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "!"
+        },
+        {
+          "type": "text-end",
+          "id": "txt-0"
+        },
+        {
+          "type": "finish",
+          "finishReason": {
+            "unified": "stop",
+            "raw": "stop"
+          },
+          "usage": {
+            "inputTokens": {
+              "total": 3058,
+              "noCache": 1778,
+              "cacheRead": 1280
+            },
+            "outputTokens": {
+              "total": 127,
+              "text": 127
+            },
+            "raw": {
+              "prompt_tokens": 3058,
+              "completion_tokens": 127,
+              "total_tokens": 3185,
+              "prompt_tokens_details": {
+                "cached_tokens": 1280
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
