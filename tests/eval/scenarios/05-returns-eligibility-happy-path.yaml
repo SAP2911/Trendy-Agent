@@ -1,0 +1,23 @@
+# Returns eligibility (1/3).
+# TR-4530: delivered within the window, returnable apparel category, not
+# final sale — the clean happy-path return, all the way to RMA creation.
+id: returns-eligibility-happy-path
+category: returns-eligibility
+description: >
+  A clean, eligible return: verify, check eligibility, and actually create
+  the RMA. The eligibility engine's item verdict must be ELIGIBLE_REFUND
+  and the mutating tool must report RETURN_CREATED.
+turns:
+  - message: >
+      My email is marcus.bell@example.com. I'd like to return the kurta
+      from order TR-4530.
+    expect:
+      toolCalls: [verify_customer, initiate_return]
+      # RETURN_CREATED is the tool's own top-level result code. The item
+      # verdict's ELIGIBLE_REFUND code lives one level deeper (inside
+      # initiate_return's `verdict` field) and is not surfaced as a
+      # standalone tool-result code by the orchestration trace — but its
+      # `clauses` ARE deep-collected (see citedClauses below), so 2.1 is
+      # still a real, load-bearing assertion for this scenario.
+      resultCodes: [VERIFIED, RETURN_CREATED]
+      citedClauses: ["2.1"]

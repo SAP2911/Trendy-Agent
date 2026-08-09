@@ -1,0 +1,24 @@
+# Robustness (1/1).
+# Two-turn conversation. Identity verified in turn 1 must carry into turn 2
+# without re-verifying — proven by the order tools already being visible on
+# turn 2's very first step (activeToolsInclude), not just by the reply text.
+id: robustness-multi-turn-identity
+category: robustness
+description: >
+  Verifies in turn 1, then asks a follow-up in turn 2 that requires an
+  order tool. The session must carry the verified identity across turns —
+  no second verify_customer call, and the order tool is visible immediately.
+turns:
+  - message: >
+      My email is marcus.bell@example.com — can you check on order TR-4530?
+    expect:
+      toolCalls: [verify_customer, lookup_order]
+      resultCodes: [VERIFIED, OK]
+  - message: "What about my other orders?"
+    expect:
+      toolCalls: [list_customer_orders]
+      resultCodes: [OK]
+      activeToolsInclude: [list_customer_orders]
+      forbidden:
+        - "email address"
+        - "phone number"

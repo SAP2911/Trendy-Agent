@@ -1,0 +1,23 @@
+# Escalation (2/2).
+# §4.4: one exchange per item; a second exchange request on the same item
+# requires human approval. The fixed dataset has no exchange history to
+# check mechanically (see SOLUTION.md limitation #4) — this scenario tests
+# whether the MODEL recognises the customer's own account of a second
+# request and routes to a human per policy, rather than blindly filing
+# another exchange.
+id: escalation-second-exchange
+category: escalation
+description: >
+  Customer reports this is their second size-exchange request on the same
+  item. §4.4 requires human approval for a second exchange — the assistant
+  must escalate rather than silently process another exchange.
+turns:
+  - message: >
+      My email is diego.ramos@example.com. I already exchanged the Oxford
+      Shirt from order TR-4528 once for a different size, and now I need to
+      exchange it again for yet another size.
+    expect:
+      toolCalls: [verify_customer, escalate_to_human]
+      resultCodes: [VERIFIED, ESCALATED]
+      citedClauses: ["4.4"]
+      mustEscalate: true

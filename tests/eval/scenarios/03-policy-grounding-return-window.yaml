@@ -1,0 +1,14 @@
+# Policy grounding (1/2).
+# A general policy question, no order or identity involved. search_policy
+# must be called and must hit clause 2.1 (the 30-day return window).
+id: policy-grounding-return-window
+category: policy-grounding
+description: >
+  General policy question answerable without identity. search_policy must
+  return a hit grounded in 2.1, and the reply must cite it.
+turns:
+  - message: "How long do I have to return something?"
+    expect:
+      toolCalls: [search_policy]
+      resultCodes: [HITS]
+      citedClauses: ["2.1"]

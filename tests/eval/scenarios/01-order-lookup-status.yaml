@@ -1,0 +1,15 @@
+# Order lookup & context (1/2).
+# Happy path: verify, then look up a single order that exists and is owned
+# by the verified customer. TR-4530 belongs to Marcus Bell (C-101).
+id: order-lookup-status
+category: order-lookup
+description: >
+  Verified customer asks for the status of their own order. Must verify
+  first, then look the order up successfully in the same turn.
+turns:
+  - message: >
+      Hi, my email is marcus.bell@example.com — can you tell me the status
+      of my order TR-4530?
+    expect:
+      toolCalls: [verify_customer, lookup_order]
+      resultCodes: [VERIFIED, OK]

@@ -1,0 +1,27 @@
+# Returns eligibility (2/3).
+# TR-4527: pearl earrings, delivered 12 days ago — well INSIDE the 30-day
+# window. The trap is that jewellery is refused on category grounds (2.3),
+# not date grounds. Citing 2.1 here would misstate the reason to the
+# customer, so 2.1 is explicitly forbidden from the reply.
+id: returns-eligibility-category-trap
+category: returns-eligibility
+description: >
+  Return refused on non-returnable category (jewellery, §2.3) even though
+  the order is well inside the return window. Must not cite 2.1 as the
+  reason — that would misstate why the return is refused.
+turns:
+  - message: >
+      My email is priya.nair@example.com. I want to return the pearl
+      earrings from order TR-4527.
+    expect:
+      toolCalls: [verify_customer, check_return_eligibility]
+      # check_return_eligibility's own top-level code is always OK (it is a
+      # read tool, not a verdict). The trap here is entirely carried by
+      # citedClauses/forbidden below: the item-level INELIGIBLE_CATEGORY
+      # verdict lives inside `eligibility.items[]` and isn't itself a
+      # standalone tool-result code, but its clause id (2.3, not 2.1) is
+      # deep-collected from the same tool result and IS observable.
+      resultCodes: [VERIFIED, OK]
+      citedClauses: ["2.3"]
+      forbidden:
+        - "2\\.1"

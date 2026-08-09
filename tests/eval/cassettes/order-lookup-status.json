@@ -1,0 +1,617 @@
+{
+  "meta": {
+    "scenarioId": "order-lookup-status",
+    "modelId": "openai/gpt-oss-120b",
+    "provider": "groq",
+    "recordedAt": "2026-08-09T14:30:36.670Z",
+    "complete": true
+  },
+  "entries": [
+    {
+      "requestPreview": {
+        "toolNames": [
+          "escalate_to_human",
+          "search_policy",
+          "verify_customer"
+        ],
+        "lastMessagePreview": "{\"role\":\"user\",\"content\":[{\"type\":\"text\",\"text\":\"Hi, my email is marcus.bell@example.com — can you tell me the status of my order TR-4530?\\n\"}]}"
+      },
+      "parts": [
+        {
+          "type": "stream-start",
+          "warnings": []
+        },
+        {
+          "type": "response-metadata",
+          "id": "chatcmpl-b4aaa4ed-cc6e-453d-bba2-fb38bb275e5a",
+          "modelId": "openai/gpt-oss-120b",
+          "timestamp": "2026-08-09T14:30:34.000Z"
+        },
+        {
+          "type": "reasoning-start",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "We"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " need"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " to"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " verify"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " customer"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " before"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " looking"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " up"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " Use"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " verify"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "_customer"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " tool"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " with"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " email"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-end",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "tool-input-start",
+          "id": "fc_5c4ffe15-8537-48af-8fca-a9e442514573",
+          "toolName": "verify_customer"
+        },
+        {
+          "type": "tool-input-delta",
+          "id": "fc_5c4ffe15-8537-48af-8fca-a9e442514573",
+          "delta": "{\"contact\":\"marcus.bell@example.com\"}"
+        },
+        {
+          "type": "tool-input-end",
+          "id": "fc_5c4ffe15-8537-48af-8fca-a9e442514573"
+        },
+        {
+          "type": "tool-call",
+          "toolCallId": "fc_5c4ffe15-8537-48af-8fca-a9e442514573",
+          "toolName": "verify_customer",
+          "input": "{\"contact\":\"marcus.bell@example.com\"}"
+        },
+        {
+          "type": "finish",
+          "finishReason": {
+            "unified": "tool-calls",
+            "raw": "tool_calls"
+          },
+          "usage": {
+            "inputTokens": {
+              "total": 1424,
+              "noCache": 656,
+              "cacheRead": 768
+            },
+            "outputTokens": {
+              "total": 50,
+              "text": 32,
+              "reasoning": 18
+            },
+            "raw": {
+              "prompt_tokens": 1424,
+              "completion_tokens": 50,
+              "total_tokens": 1474,
+              "prompt_tokens_details": {
+                "cached_tokens": 768
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 18
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requestPreview": {
+        "toolNames": [
+          "check_delay_credit",
+          "check_exchange_eligibility",
+          "check_return_eligibility",
+          "compute_refund_timeline",
+          "escalate_to_human",
+          "initiate_exchange",
+          "initiate_return",
+          "issue_delay_credit",
+          "list_customer_orders",
+          "lookup_order",
+          "report_damaged_item",
+          "search_policy",
+          "verify_customer"
+        ],
+        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_5c4ffe15-8537-48af-8fca-a9e442514573\",\"toolName\":\"verify_customer\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"VERIFIED\",\"customerId\":\"C-101\",\"name\":\"Marcus Bell\",\"message\":\"Identity verified for Marcus Bell.\"}}}]}"
+      },
+      "parts": [
+        {
+          "type": "stream-start",
+          "warnings": []
+        },
+        {
+          "type": "response-metadata",
+          "id": "chatcmpl-d8c30b36-8781-4a37-920e-9371dca24c2d",
+          "modelId": "openai/gpt-oss-120b",
+          "timestamp": "2026-08-09T14:30:35.000Z"
+        },
+        {
+          "type": "reasoning-start",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "Now"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " we"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " can"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " lookup"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " order"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " TR"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "-"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "453"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "0"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": "."
+        },
+        {
+          "type": "reasoning-end",
+          "id": "reasoning-0"
+        },
+        {
+          "type": "tool-input-start",
+          "id": "fc_69a03622-e7f2-4fd7-a0fd-3b03dc908035",
+          "toolName": "lookup_order"
+        },
+        {
+          "type": "tool-input-delta",
+          "id": "fc_69a03622-e7f2-4fd7-a0fd-3b03dc908035",
+          "delta": "{\"orderId\":\"TR-4530\"}"
+        },
+        {
+          "type": "tool-input-end",
+          "id": "fc_69a03622-e7f2-4fd7-a0fd-3b03dc908035"
+        },
+        {
+          "type": "tool-call",
+          "toolCallId": "fc_69a03622-e7f2-4fd7-a0fd-3b03dc908035",
+          "toolName": "lookup_order",
+          "input": "{\"orderId\":\"TR-4530\"}"
+        },
+        {
+          "type": "finish",
+          "finishReason": {
+            "unified": "tool-calls",
+            "raw": "tool_calls"
+          },
+          "usage": {
+            "inputTokens": {
+              "total": 2460,
+              "noCache": 156,
+              "cacheRead": 2304
+            },
+            "outputTokens": {
+              "total": 37,
+              "text": 26,
+              "reasoning": 11
+            },
+            "raw": {
+              "prompt_tokens": 2460,
+              "completion_tokens": 37,
+              "total_tokens": 2497,
+              "prompt_tokens_details": {
+                "cached_tokens": 2304
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 11
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requestPreview": {
+        "toolNames": [
+          "check_delay_credit",
+          "check_exchange_eligibility",
+          "check_return_eligibility",
+          "compute_refund_timeline",
+          "escalate_to_human",
+          "initiate_exchange",
+          "initiate_return",
+          "issue_delay_credit",
+          "list_customer_orders",
+          "lookup_order",
+          "report_damaged_item",
+          "search_policy",
+          "verify_customer"
+        ],
+        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_69a03622-e7f2-4fd7-a0fd-3b03dc908035\",\"toolName\":\"lookup_order\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"OK\",\"evaluatedAt\":\"2026-08-04\",\"order\":{\"orderId\":\"TR-4530\",\"status\":\"delivered\",\"placedAt\":\"2026-07-21T14:22:00Z\",\"deliveredAt\":\""
+      },
+      "parts": [
+        {
+          "type": "stream-start",
+          "warnings": []
+        },
+        {
+          "type": "response-metadata",
+          "id": "chatcmpl-c9b82aa4-a8ef-4936-9fc7-690d32296964",
+          "modelId": "openai/gpt-oss-120b",
+          "timestamp": "2026-08-09T14:30:36.000Z"
+        },
+        {
+          "type": "text-start",
+          "id": "txt-0"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "Your"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " order"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " **"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "TR"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "-"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "453"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "0"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "**"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " was"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " delivered"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " on"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " "
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "26"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " "
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "July"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " "
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "202"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "6"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " ("
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "tracking"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " "
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "BD"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "887"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "199"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "001"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "2"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " via"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " "
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "Blue"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "D"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "art"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": ")."
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " Let"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " me"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " know"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " if"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " you"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " need"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " anything"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " else"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "—"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "perhaps"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " a"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " return"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " or"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " exchange"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "?"
+        },
+        {
+          "type": "text-end",
+          "id": "txt-0"
+        },
+        {
+          "type": "finish",
+          "finishReason": {
+            "unified": "stop",
+            "raw": "stop"
+          },
+          "usage": {
+            "inputTokens": {
+              "total": 2655,
+              "noCache": 2143,
+              "cacheRead": 512
+            },
+            "outputTokens": {
+              "total": 51,
+              "text": 51
+            },
+            "raw": {
+              "prompt_tokens": 2655,
+              "completion_tokens": 51,
+              "total_tokens": 2706,
+              "prompt_tokens_details": {
+                "cached_tokens": 512
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+# Order lookup & context (2/2).
+# TR-4524 is partially_shipped: the jeans shipped, the belt is backordered.
+# Trap: §1.4 says the customer is NOT charged a second shipping fee for the
+# remainder of the order. An agent that invents a second charge fails this.
+id: order-lookup-partial-shipment
+category: order-lookup
+description: >
+  Explains a partial shipment (one item shipped, one backordered) without
+  claiming the customer owes a second shipping fee for the remainder.
+turns:
+  - message: >
+      My email is ananya.rao@example.com. Only one item showed up from
+      order TR-4524 — what's going on with the rest of it?
+    expect:
+      toolCalls: [verify_customer, lookup_order]
+      resultCodes: [VERIFIED, OK]
+      forbidden:
+        - "you(?:'ll| will) (?:be charged|need to pay|owe) (?:a |an )?(?:second|additional|extra|another) (?:shipping )?fee"
+        - "charged (?:a |an )?(?:second|additional|extra) time for shipping"

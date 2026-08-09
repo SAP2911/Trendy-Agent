@@ -1,0 +1,18 @@
+# Returns eligibility (3/3).
+# TR-4523: delivered 2026-06-05, well past the 30-day window as of the
+# pinned eval clock (2026-08-04). Refused purely on window grounds (2.1).
+id: returns-eligibility-window-expired
+category: returns-eligibility
+description: >
+  Return refused because the 30-day window (§2.1) has closed — a
+  straightforward date-based refusal, no category or final-sale trap.
+turns:
+  - message: >
+      My email is priya.nair@example.com. Can I return order TR-4523?
+    expect:
+      toolCalls: [verify_customer, check_return_eligibility]
+      # See 06's comment: INELIGIBLE_WINDOW is an item-level verdict code,
+      # not a standalone tool-result code. citedClauses (2.1, the window
+      # clause) is the real assertion carrying this scenario's trap.
+      resultCodes: [VERIFIED, OK]
+      citedClauses: ["2.1"]

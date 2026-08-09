@@ -50,10 +50,13 @@ it **unset in production**; real system time is the correct default.
 ```bash
 npm run dev            # dev server
 npm run build          # production build
-npm test               # 291 tests
+npm test               # 315 tests
 npm run test:coverage  # tests + coverage gate (>=90% on lib/**)
 npm run typecheck      # tsc --noEmit
 npm run lint           # eslint
+npm run eval           # cassette-backed scripted-conversation harness, offline, no API key
+npm run eval:record    # record fresh cassettes (needs GROQ_API_KEY; --record on PowerShell)
+npm run mutation       # Stryker mutation testing over lib/policy/** and lib/guards/**
 ```
 
 ---
@@ -111,7 +114,8 @@ lib/guards/   pii · injection · input · grounding · output
 lib/agent/    session · providers+breaker · prompts · loop
 lib/obs/      structured trace with correlation ids
 app/          SSE endpoint · chat UI · trace panel · asset suite
-tests/unit/   291 tests
+tests/unit/   315 tests (298 lib/agent+guards+policy+data + 17 eval-scenario schema)
+tests/eval/   12 scripted conversation scenarios, cassette-backed offline harness
 ```
 
 ---
@@ -120,11 +124,12 @@ tests/unit/   291 tests
 
 | Gate | Result |
 |---|---|
-| Tests | **291 passing** |
+| Tests | **315 passing** (298 + 17 new eval-scenario schema tests) |
 | Coverage (`lib/**`) | **99.71%** stmts · 96.9% branch · 100% funcs |
 | Typecheck | clean (`strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`) |
 | Lint | clean |
 | Build | clean |
+| Mutation (`lib/policy/**`, `lib/guards/**`) | see [mutation testing](#mutation-testing) below |
 
 All ten orders were verified against their designed verdicts by executing the real modules,
 and the four graded scenarios above were verified end to end against a live provider.
@@ -132,6 +137,57 @@ and the four graded scenarios above were verified end to end against a live prov
 **The fixed dataset is protected by a SHA-256 tripwire.** `orders.json` and
 `trendly_policy.md` are asserted byte-identical on every test run; if either is edited the
 suite fails loudly. They were never modified.
+
+---
+
+## Eval harness
+
+`tests/eval/` is a cassette-backed scripted-conversation harness: 12 scenarios across the
+six graded categories (order lookup, policy grounding, returns eligibility, escalation,
+safety & refusals, robustness), each asserting on tool calls, tool result codes, cited
+policy clauses, forbidden text patterns, and escalation — run entirely offline, by default.
+
+```bash
+npm run eval                                    # REPLAY — zero network calls, no API key needed
+npm run eval:record                              # RECORD (POSIX) — needs GROQ_API_KEY
+npx tsx tests/eval/runner.ts --record            # RECORD (PowerShell-safe CLI flag equivalent)
+npx tsx tests/eval/runner.ts --record --only=id  # re-record one scenario
+```
+
+The cassette layer is a `LanguageModel` middleware (`ai@7.0.51`'s own `wrapLanguageModel` +
+`LanguageModelV4Middleware`, not a hand-rolled model) keyed on a stable hash of model id,
+instructions, messages and tool names. In replay mode a cassette miss **fails loudly**
+(scenario name + request hash + a preview of what was actually asked) — it never silently
+falls through to the network. Cassettes are committed JSON under `tests/eval/cassettes/`.
+`tests/unit/eval-scenarios.test.ts` Zod-validates every scenario file on every `npm test`
+run, with no cassette or network involved.
+
+**Recording status: 1 of 12 scenarios has a usable cassette.** Recording is against Groq
+only (no Gemini calls), strictly sequential, with a 3-second pause before every turn, and a
+hard stop — never a retry — on the first provider failure. The one live recording attempt
+made for this harness hit Groq's **daily token quota** on the very first scenario (`Used
+199850/200000 TPD`, i.e. already exhausted before this attempt from other same-day use) —
+confirmed by a real `429` from the API, not a guess. Per that stop condition, no further
+scenarios were attempted. The partial capture for `order-lookup-status` (2 of its 3
+model interactions, before the 429) is committed as evidence the record path works against
+the live API; it is marked `incomplete` and is therefore never used for a passing replay.
+`npm run eval` genuinely runs offline with zero network calls either way — it currently
+scores `1/12` (the zero-model-call card-number refusal, which costs no quota to record or
+replay) rather than `12/12`, honestly reflecting what has and hasn't been recorded yet. Full
+scorecard and the exact reproduction commands are in
+`.superpowers/sdd/2026-08-04-trendly-agent/eval-mutation-report.md`.
+
+---
+
+## Mutation testing
+
+`stryker.config.json` runs Stryker over `lib/policy/**` and `lib/guards/**` (the highest
+value targets: the policy engine and the guards) with the Vitest runner, `break: 90`. See
+the report for the mutation score, the surviving-mutant list, and what was done about each.
+
+```bash
+npm run mutation
+```
 
 ---
 

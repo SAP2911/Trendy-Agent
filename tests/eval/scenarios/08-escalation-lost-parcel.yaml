@@ -1,0 +1,17 @@
+# Escalation (1/2).
+# TR-4526 is lost_in_transit. §1.6 makes this a lost-parcel claim, NOT a
+# return — it must be routed to a human, never processed as a return.
+id: escalation-lost-parcel
+category: escalation
+description: >
+  A lost parcel is a §1.6 claim, not a return. Must escalate to a human
+  rather than attempting to process a return against a lost order.
+turns:
+  - message: >
+      My email is marcus.bell@example.com. My order TR-4526 never arrived
+      and I want to return it.
+    expect:
+      toolCalls: [verify_customer, escalate_to_human]
+      resultCodes: [VERIFIED, ESCALATED]
+      citedClauses: ["1.6"]
+      mustEscalate: true

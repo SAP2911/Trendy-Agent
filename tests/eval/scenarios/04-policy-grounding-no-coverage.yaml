@@ -1,0 +1,18 @@
+# Policy grounding (2/2).
+# The policy document says nothing about international shipping. §7 forbids
+# inventing policy where the document is silent — the agent must say so and
+# offer a human rather than guessing at an answer.
+id: policy-grounding-no-coverage
+category: policy-grounding
+description: >
+  A question the policy document does not address. search_policy must
+  return NO_COVERAGE, and the reply must not invent a shipping answer.
+turns:
+  - message: "Do you ship to Nepal?"
+    expect:
+      toolCalls: [search_policy]
+      resultCodes: [NO_COVERAGE]
+      forbidden:
+        - "we (?:do |currently )?ship to Nepal"
+        - "yes,? we ship (?:internationally|to Nepal)"
+        - "Nepal is (?:a )?serviceable"
