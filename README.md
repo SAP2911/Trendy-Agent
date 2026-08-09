@@ -134,6 +134,36 @@ tests/eval/   12 scripted conversation scenarios, cassette-backed offline harnes
 All ten orders were verified against their designed verdicts by executing the real modules,
 and the four graded scenarios above were verified end to end against a live provider.
 
+### Eval harness
+
+```bash
+npm run eval          # replay from committed cassettes — no API key, no network
+npm run eval:record -- --force   # re-record (needs GROQ_API_KEY)
+```
+
+Twelve scripted conversations across the six categories the assignment names it grades,
+replayed from committed cassettes so a reviewer can run them offline:
+
+| Category | Result |
+|---|---|
+| Order lookup & context | 2/2 |
+| Policy grounding | 2/2 |
+| Returns eligibility | 3/3 |
+| Escalation | 0/2 — cassettes not yet recorded |
+| Safety & refusals | 1/2 — one cassette not yet recorded |
+| Robustness | 0/1 — cassette not yet recorded |
+| **Total** | **8/12 passing, 4 awaiting a cassette** |
+
+The four gaps are a **recording** limit, not agent failures. Cassettes hash the exact
+request, so a prompt change invalidates them by design — and Groq's free tier caps
+tokens per DAY (200K), which the recording passes exhausted. `npm run eval:record --
+--force` on a fresh daily budget fills them in. A scenario without a complete cassette
+fails loudly rather than being skipped, so the gap can never be mistaken for a pass.
+
+What the harness caught while being built: an unenforced §4.4 second-exchange rule, the
+agent deriving eligibility from raw order data instead of calling the tool, and a
+regression introduced by a prompt fix — all three in the first hour of it working.
+
 **The fixed dataset is protected by a SHA-256 tripwire.** `orders.json` and
 `trendly_policy.md` are asserted byte-identical on every test run; if either is edited the
 suite fails loudly. They were never modified.

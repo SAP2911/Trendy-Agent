@@ -58,7 +58,17 @@ const EVAL_AS_OF = '2026-08-04T12:00:00Z';
 const EVAL_MODEL_ID = process.env.TRENDLY_PRIMARY_MODEL ?? 'openai/gpt-oss-120b';
 const EVAL_PROVIDER_NAME = 'groq';
 
-const RECORD_DELAY_MS = 3_000;
+/**
+ * Pause before every recorded turn.
+ *
+ * Groq's free tier limits TOKENS per minute, not just requests, and one agent
+ * turn can span five model calls that each carry the full instructions plus 13
+ * tool schemas. Token-heavy scenarios (the lost-parcel escalation especially)
+ * exhaust a minute's budget inside a single turn, so the pause has to be long
+ * enough to clear the window rather than merely space out requests.
+ * Override with TRENDLY_RECORD_DELAY_MS when recording those.
+ */
+const RECORD_DELAY_MS = Number(process.env.TRENDLY_RECORD_DELAY_MS ?? 3_000);
 
 type HistoryEntry = { role: 'user' | 'assistant'; content: string };
 
