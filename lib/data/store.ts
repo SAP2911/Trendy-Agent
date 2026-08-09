@@ -38,9 +38,39 @@ export function createReturn(input: ReturnInput): { rmaId: string; created: bool
   return { rmaId: id, created };
 }
 
+/**
+ * Idempotency is keyed on the requested SIZE as well as the item.
+ *
+ * Keying on `(orderId, sku)` alone conflates two different events: a retry of
+ * the same request, and a genuinely NEW exchange for a different size. §4.4
+ * allows one exchange per item and sends the second to a human, so collapsing
+ * them meant a second exchange silently returned the first one's id and the
+ * approval requirement never fired. See findItemExchange below.
+ */
 export function createExchange(input: ExchangeInput): { exchangeId: string; created: boolean } {
-  const { id, created } = upsert(exchanges, `${input.orderId}:${input.sku}:exchange`, 'EXC');
+  const key = `${input.orderId}:${input.sku}:exchange:${input.toSize.trim().toLowerCase()}`;
+  const { id, created } = upsert(exchanges, key, 'EXC');
   return { exchangeId: id, created };
+}
+
+/**
+ * The exchange already on file for this item, if any, regardless of size.
+ *
+ * §4.4: "One exchange per item. A second exchange request on the same item
+ * requires human approval." This is how the mutating tool distinguishes a
+ * retry (same size — idempotent, returns the same id) from a second request
+ * (different size — must be escalated, never auto-created).
+ */
+export function findItemExchange(
+  orderId: string, sku: string,
+): { exchangeId: string; toSize: string } | undefined {
+  const prefix = `${orderId}:${sku}:exchange:`;
+  for (const [key, record] of exchanges) {
+    if (key.startsWith(prefix)) {
+      return { exchangeId: record.id, toSize: key.slice(prefix.length) };
+    }
+  }
+  return undefined;
 }
 
 export function issueCredit(orderId: string, amountInr: number): { creditId: string; created: boolean } {

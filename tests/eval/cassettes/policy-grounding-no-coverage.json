@@ -3,7 +3,7 @@
     "scenarioId": "policy-grounding-no-coverage",
     "modelId": "openai/gpt-oss-120b",
     "provider": "groq",
-    "recordedAt": "2026-08-09T14:31:04.792Z",
+    "recordedAt": "2026-08-09T15:07:53.755Z",
     "complete": true
   },
   "entries": [
@@ -23,9 +23,9 @@
         },
         {
           "type": "response-metadata",
-          "id": "chatcmpl-68434514-8c99-48c7-8500-1dc04f157ef6",
+          "id": "chatcmpl-f4048859-ce5e-4f66-bca6-efcc0d30a420",
           "modelId": "openai/gpt-oss-120b",
-          "timestamp": "2026-08-09T14:31:00.000Z"
+          "timestamp": "2026-08-09T15:07:46.000Z"
         },
         {
           "type": "reasoning-start",
@@ -39,12 +39,7 @@
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " need"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " to"
+          "delta": " must"
         },
         {
           "type": "reasoning-delta",
@@ -54,12 +49,7 @@
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " according"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " to"
+          "delta": " per"
         },
         {
           "type": "reasoning-delta",
@@ -69,87 +59,7 @@
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": "."
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " Shipping"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " policy"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " question"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
           "delta": ":"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " \""
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "Do"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " you"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " ship"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " to"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " Nepal"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "?\""
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " It's"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " a"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " policy"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " question"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " about"
         },
         {
           "type": "reasoning-delta",
@@ -159,17 +69,22 @@
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " destinations"
+          "delta": " policy"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": "."
+          "delta": " question"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " That"
+          "delta": ","
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " which"
         },
         {
           "type": "reasoning-delta",
@@ -179,12 +94,17 @@
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " covered"
+          "delta": " allowed"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " by"
+          "delta": " as"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " general"
         },
         {
           "type": "reasoning-delta",
@@ -194,22 +114,7 @@
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " maybe"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " under"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " \""
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "5"
+          "delta": " question"
         },
         {
           "type": "reasoning-delta",
@@ -219,57 +124,22 @@
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": "2"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " Non"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "-service"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "able"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " pinc"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "odes"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "\"."
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
           "delta": " We"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " need"
+          "delta": " can"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " to"
+          "delta": " answer"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " call"
+          "delta": " using"
         },
         {
           "type": "reasoning-delta",
@@ -284,12 +154,12 @@
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " with"
+          "delta": " tool"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " the"
+          "delta": " with"
         },
         {
           "type": "reasoning-delta",
@@ -299,62 +169,62 @@
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": "."
+          "delta": " about"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " No"
+          "delta": " shipping"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " verification"
+          "delta": " to"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " needed"
+          "delta": " Nepal"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " because"
+          "delta": " ("
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " not"
+          "delta": "address"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " order"
+          "delta": " changes"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": "-specific"
+          "delta": "?"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": "."
+          "delta": " shipping"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " So"
+          "delta": " coverage"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " we"
+          "delta": ")."
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " call"
+          "delta": " Use"
         },
         {
           "type": "reasoning-delta",
@@ -377,21 +247,21 @@
         },
         {
           "type": "tool-input-start",
-          "id": "fc_dc6e7f1b-d555-42f0-b80d-30466360f65b",
+          "id": "fc_d08f82f7-9258-4c95-97f3-c697a0d2c809",
           "toolName": "search_policy"
         },
         {
           "type": "tool-input-delta",
-          "id": "fc_dc6e7f1b-d555-42f0-b80d-30466360f65b",
+          "id": "fc_d08f82f7-9258-4c95-97f3-c697a0d2c809",
           "delta": "{\"query\":\"Do you ship to Nepal?\"}"
         },
         {
           "type": "tool-input-end",
-          "id": "fc_dc6e7f1b-d555-42f0-b80d-30466360f65b"
+          "id": "fc_d08f82f7-9258-4c95-97f3-c697a0d2c809"
         },
         {
           "type": "tool-call",
-          "toolCallId": "fc_dc6e7f1b-d555-42f0-b80d-30466360f65b",
+          "toolCallId": "fc_d08f82f7-9258-4c95-97f3-c697a0d2c809",
           "toolName": "search_policy",
           "input": "{\"query\":\"Do you ship to Nepal?\"}"
         },
@@ -403,24 +273,24 @@
           },
           "usage": {
             "inputTokens": {
-              "total": 1404,
-              "noCache": 124,
-              "cacheRead": 1280
+              "total": 1528,
+              "noCache": 504,
+              "cacheRead": 1024
             },
             "outputTokens": {
-              "total": 100,
+              "total": 74,
               "text": 31,
-              "reasoning": 69
+              "reasoning": 43
             },
             "raw": {
-              "prompt_tokens": 1404,
-              "completion_tokens": 100,
-              "total_tokens": 1504,
+              "prompt_tokens": 1528,
+              "completion_tokens": 74,
+              "total_tokens": 1602,
               "prompt_tokens_details": {
-                "cached_tokens": 1280
+                "cached_tokens": 1024
               },
               "completion_tokens_details": {
-                "reasoning_tokens": 69
+                "reasoning_tokens": 43
               }
             }
           }
@@ -434,7 +304,7 @@
           "search_policy",
           "verify_customer"
         ],
-        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_dc6e7f1b-d555-42f0-b80d-30466360f65b\",\"toolName\":\"search_policy\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"NO_COVERAGE\",\"query\":\"Do you ship to Nepal?\"}}}]}"
+        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_d08f82f7-9258-4c95-97f3-c697a0d2c809\",\"toolName\":\"search_policy\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"NO_COVERAGE\",\"query\":\"Do you ship to Nepal?\"}}}]}"
       },
       "parts": [
         {
@@ -443,342 +313,9 @@
         },
         {
           "type": "response-metadata",
-          "id": "chatcmpl-51aac8c3-9d0c-46ba-a256-67065d2f5ae0",
+          "id": "chatcmpl-c4773d84-a01c-4582-9b6e-d18d3bf0f0f6",
           "modelId": "openai/gpt-oss-120b",
-          "timestamp": "2026-08-09T14:31:03.000Z"
-        },
-        {
-          "type": "reasoning-start",
-          "id": "reasoning-0"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "The"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " policy"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " tool"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " returned"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " NO"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "_C"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "OVER"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "AGE"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": ","
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " meaning"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " the"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " policy"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " does"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " not"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " cover"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " it"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "."
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " According"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " to"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " instructions"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": ","
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " we"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " must"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " say"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " plainly"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " that"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " the"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " policy"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " does"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " not"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " cover"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " it"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " and"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " offer"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " a"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " human"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " agent"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "."
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " So"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " we"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " should"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " respond"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": ":"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " \""
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "I"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "’m"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " sorry"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": ","
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " the"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " policy"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " does"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " not"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " cover"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " that"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " question"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": "."
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " Let"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " me"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " connect"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " you"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " with"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " a"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " human"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " agent"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": ".\""
-        },
-        {
-          "type": "reasoning-end",
-          "id": "reasoning-0"
+          "timestamp": "2026-08-09T15:07:53.000Z"
         },
         {
           "type": "text-start",
@@ -921,24 +458,20 @@
           },
           "usage": {
             "inputTokens": {
-              "total": 1525,
-              "noCache": 245,
-              "cacheRead": 1280
+              "total": 1623,
+              "noCache": 1367,
+              "cacheRead": 256
             },
             "outputTokens": {
-              "total": 100,
-              "text": 34,
-              "reasoning": 66
+              "total": 29,
+              "text": 29
             },
             "raw": {
-              "prompt_tokens": 1525,
-              "completion_tokens": 100,
-              "total_tokens": 1625,
+              "prompt_tokens": 1623,
+              "completion_tokens": 29,
+              "total_tokens": 1652,
               "prompt_tokens_details": {
-                "cached_tokens": 1280
-              },
-              "completion_tokens_details": {
-                "reasoning_tokens": 66
+                "cached_tokens": 256
               }
             }
           }

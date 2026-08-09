@@ -3,7 +3,7 @@
     "scenarioId": "order-lookup-status",
     "modelId": "openai/gpt-oss-120b",
     "provider": "groq",
-    "recordedAt": "2026-08-09T14:30:36.670Z",
+    "recordedAt": "2026-08-09T15:06:10.935Z",
     "complete": true
   },
   "entries": [
@@ -23,9 +23,9 @@
         },
         {
           "type": "response-metadata",
-          "id": "chatcmpl-b4aaa4ed-cc6e-453d-bba2-fb38bb275e5a",
+          "id": "chatcmpl-97bc4c4d-d0bb-4dc7-8c70-0be5df10fff7",
           "modelId": "openai/gpt-oss-120b",
-          "timestamp": "2026-08-09T14:30:34.000Z"
+          "timestamp": "2026-08-09T15:06:07.000Z"
         },
         {
           "type": "reasoning-start",
@@ -64,12 +64,7 @@
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " looking"
-        },
-        {
-          "type": "reasoning-delta",
-          "id": "reasoning-0",
-          "delta": " up"
+          "delta": " using"
         },
         {
           "type": "reasoning-delta",
@@ -79,12 +74,27 @@
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
+          "delta": " lookup"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
           "delta": "."
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " Use"
+          "delta": " So"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " first"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " call"
         },
         {
           "type": "reasoning-delta",
@@ -99,12 +109,12 @@
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " tool"
+          "delta": " with"
         },
         {
           "type": "reasoning-delta",
           "id": "reasoning-0",
-          "delta": " with"
+          "delta": " contact"
         },
         {
           "type": "reasoning-delta",
@@ -122,21 +132,21 @@
         },
         {
           "type": "tool-input-start",
-          "id": "fc_5c4ffe15-8537-48af-8fca-a9e442514573",
+          "id": "fc_451a2df6-b25c-4fac-ba3b-ecd2a4d3a215",
           "toolName": "verify_customer"
         },
         {
           "type": "tool-input-delta",
-          "id": "fc_5c4ffe15-8537-48af-8fca-a9e442514573",
+          "id": "fc_451a2df6-b25c-4fac-ba3b-ecd2a4d3a215",
           "delta": "{\"contact\":\"marcus.bell@example.com\"}"
         },
         {
           "type": "tool-input-end",
-          "id": "fc_5c4ffe15-8537-48af-8fca-a9e442514573"
+          "id": "fc_451a2df6-b25c-4fac-ba3b-ecd2a4d3a215"
         },
         {
           "type": "tool-call",
-          "toolCallId": "fc_5c4ffe15-8537-48af-8fca-a9e442514573",
+          "toolCallId": "fc_451a2df6-b25c-4fac-ba3b-ecd2a4d3a215",
           "toolName": "verify_customer",
           "input": "{\"contact\":\"marcus.bell@example.com\"}"
         },
@@ -148,24 +158,20 @@
           },
           "usage": {
             "inputTokens": {
-              "total": 1424,
-              "noCache": 656,
-              "cacheRead": 768
+              "total": 1548,
+              "noCache": 1548
             },
             "outputTokens": {
-              "total": 50,
+              "total": 52,
               "text": 32,
-              "reasoning": 18
+              "reasoning": 20
             },
             "raw": {
-              "prompt_tokens": 1424,
-              "completion_tokens": 50,
-              "total_tokens": 1474,
-              "prompt_tokens_details": {
-                "cached_tokens": 768
-              },
+              "prompt_tokens": 1548,
+              "completion_tokens": 52,
+              "total_tokens": 1600,
               "completion_tokens_details": {
-                "reasoning_tokens": 18
+                "reasoning_tokens": 20
               }
             }
           }
@@ -189,7 +195,7 @@
           "search_policy",
           "verify_customer"
         ],
-        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_5c4ffe15-8537-48af-8fca-a9e442514573\",\"toolName\":\"verify_customer\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"VERIFIED\",\"customerId\":\"C-101\",\"name\":\"Marcus Bell\",\"message\":\"Identity verified for Marcus Bell.\"}}}]}"
+        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_451a2df6-b25c-4fac-ba3b-ecd2a4d3a215\",\"toolName\":\"verify_customer\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"VERIFIED\",\"customerId\":\"C-101\",\"name\":\"Marcus Bell\",\"message\":\"Identity verified for Marcus Bell.\"}}}]}"
       },
       "parts": [
         {
@@ -198,9 +204,9 @@
         },
         {
           "type": "response-metadata",
-          "id": "chatcmpl-d8c30b36-8781-4a37-920e-9371dca24c2d",
+          "id": "chatcmpl-d02ae849-effc-4d6b-852d-80f02c1f944a",
           "modelId": "openai/gpt-oss-120b",
-          "timestamp": "2026-08-09T14:30:35.000Z"
+          "timestamp": "2026-08-09T15:06:08.000Z"
         },
         {
           "type": "reasoning-start",
@@ -210,6 +216,16 @@
           "type": "reasoning-delta",
           "id": "reasoning-0",
           "delta": "Now"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": " verified"
+        },
+        {
+          "type": "reasoning-delta",
+          "id": "reasoning-0",
+          "delta": ","
         },
         {
           "type": "reasoning-delta",
@@ -262,21 +278,21 @@
         },
         {
           "type": "tool-input-start",
-          "id": "fc_69a03622-e7f2-4fd7-a0fd-3b03dc908035",
+          "id": "fc_9b99f1eb-4b99-48ea-8d5e-2400418317cc",
           "toolName": "lookup_order"
         },
         {
           "type": "tool-input-delta",
-          "id": "fc_69a03622-e7f2-4fd7-a0fd-3b03dc908035",
+          "id": "fc_9b99f1eb-4b99-48ea-8d5e-2400418317cc",
           "delta": "{\"orderId\":\"TR-4530\"}"
         },
         {
           "type": "tool-input-end",
-          "id": "fc_69a03622-e7f2-4fd7-a0fd-3b03dc908035"
+          "id": "fc_9b99f1eb-4b99-48ea-8d5e-2400418317cc"
         },
         {
           "type": "tool-call",
-          "toolCallId": "fc_69a03622-e7f2-4fd7-a0fd-3b03dc908035",
+          "toolCallId": "fc_9b99f1eb-4b99-48ea-8d5e-2400418317cc",
           "toolName": "lookup_order",
           "input": "{\"orderId\":\"TR-4530\"}"
         },
@@ -288,24 +304,24 @@
           },
           "usage": {
             "inputTokens": {
-              "total": 2460,
-              "noCache": 156,
-              "cacheRead": 2304
+              "total": 2648,
+              "noCache": 2392,
+              "cacheRead": 256
             },
             "outputTokens": {
-              "total": 37,
+              "total": 39,
               "text": 26,
-              "reasoning": 11
+              "reasoning": 13
             },
             "raw": {
-              "prompt_tokens": 2460,
-              "completion_tokens": 37,
-              "total_tokens": 2497,
+              "prompt_tokens": 2648,
+              "completion_tokens": 39,
+              "total_tokens": 2687,
               "prompt_tokens_details": {
-                "cached_tokens": 2304
+                "cached_tokens": 256
               },
               "completion_tokens_details": {
-                "reasoning_tokens": 11
+                "reasoning_tokens": 13
               }
             }
           }
@@ -329,7 +345,7 @@
           "search_policy",
           "verify_customer"
         ],
-        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_69a03622-e7f2-4fd7-a0fd-3b03dc908035\",\"toolName\":\"lookup_order\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"OK\",\"evaluatedAt\":\"2026-08-04\",\"order\":{\"orderId\":\"TR-4530\",\"status\":\"delivered\",\"placedAt\":\"2026-07-21T14:22:00Z\",\"deliveredAt\":\""
+        "lastMessagePreview": "{\"role\":\"tool\",\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"fc_9b99f1eb-4b99-48ea-8d5e-2400418317cc\",\"toolName\":\"lookup_order\",\"output\":{\"type\":\"json\",\"value\":{\"code\":\"OK\",\"evaluatedAt\":\"2026-08-04\",\"order\":{\"orderId\":\"TR-4530\",\"status\":\"delivered\",\"placedAt\":\"2026-07-21T14:22:00Z\",\"deliveredAt\":\""
       },
       "parts": [
         {
@@ -338,9 +354,9 @@
         },
         {
           "type": "response-metadata",
-          "id": "chatcmpl-c9b82aa4-a8ef-4936-9fc7-690d32296964",
+          "id": "chatcmpl-e8970e85-768a-4eca-8d35-250207d6ff39",
           "modelId": "openai/gpt-oss-120b",
-          "timestamp": "2026-08-09T14:30:36.000Z"
+          "timestamp": "2026-08-09T15:06:10.000Z"
         },
         {
           "type": "text-start",
@@ -439,72 +455,7 @@
         {
           "type": "text-delta",
           "id": "txt-0",
-          "delta": " ("
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": "tracking"
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": " "
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": "BD"
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": "887"
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": "199"
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": "001"
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": "2"
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": " via"
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": " "
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": "Blue"
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": "D"
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": "art"
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": ")."
+          "delta": "."
         },
         {
           "type": "text-delta",
@@ -534,27 +485,22 @@
         {
           "type": "text-delta",
           "id": "txt-0",
-          "delta": " need"
+          "delta": "’d"
         },
         {
           "type": "text-delta",
           "id": "txt-0",
-          "delta": " anything"
+          "delta": " like"
         },
         {
           "type": "text-delta",
           "id": "txt-0",
-          "delta": " else"
+          "delta": " help"
         },
         {
           "type": "text-delta",
           "id": "txt-0",
-          "delta": "—"
-        },
-        {
-          "type": "text-delta",
-          "id": "txt-0",
-          "delta": "perhaps"
+          "delta": " with"
         },
         {
           "type": "text-delta",
@@ -569,7 +515,7 @@
         {
           "type": "text-delta",
           "id": "txt-0",
-          "delta": " or"
+          "delta": ","
         },
         {
           "type": "text-delta",
@@ -579,7 +525,42 @@
         {
           "type": "text-delta",
           "id": "txt-0",
-          "delta": "?"
+          "delta": ","
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " or"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " anything"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " else"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " regarding"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " this"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": " order"
+        },
+        {
+          "type": "text-delta",
+          "id": "txt-0",
+          "delta": "."
         },
         {
           "type": "text-end",
@@ -593,20 +574,20 @@
           },
           "usage": {
             "inputTokens": {
-              "total": 2655,
-              "noCache": 2143,
-              "cacheRead": 512
+              "total": 2845,
+              "noCache": 1821,
+              "cacheRead": 1024
             },
             "outputTokens": {
-              "total": 51,
-              "text": 51
+              "total": 44,
+              "text": 44
             },
             "raw": {
-              "prompt_tokens": 2655,
-              "completion_tokens": 51,
-              "total_tokens": 2706,
+              "prompt_tokens": 2845,
+              "completion_tokens": 44,
+              "total_tokens": 2889,
               "prompt_tokens_details": {
-                "cached_tokens": 512
+                "cached_tokens": 1024
               }
             }
           }

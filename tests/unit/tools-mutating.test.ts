@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterAll } from 'vitest';
 import {
   initiateReturnImpl, initiateExchangeImpl, issueDelayCreditImpl, escalateToHumanImpl,
 } from '@/lib/tools/mutating';
-import { resetStore, getTicket } from '@/lib/data/store';
+import { resetStore, getTicket, findItemExchange } from '@/lib/data/store';
 import type { TrendlyContext } from '@/lib/agent/session';
 
 const ORIGINAL_AS_OF = process.env.TRENDLY_AS_OF;
@@ -246,5 +246,46 @@ describe('escalate_to_human', () => {
     expect(r.code).toBe('ESCALATED');
     if (r.code !== 'ESCALATED') throw new Error('expected ESCALATED'); // narrows r.ticketId
     expect(getTicket(r.ticketId)?.customerId).toBeNull();
+  });
+});
+
+describe('§4.4 — one exchange per item, second needs human approval', () => {
+  const diego = () => ctx('C-103');
+
+  // The old key was (orderId, sku), which could not tell a retry from a genuine
+  // second request: asking for a different size silently returned the FIRST
+  // exchange's id and the approval requirement never fired.
+  it('creates the first size exchange', () => {
+    const r = initiateExchangeImpl(
+      { orderId: 'TR-4528', sku: 'TR-SHR-009', toSize: 'L' }, diego());
+    expect(r.code).toBe('EXCHANGE_CREATED');
+  });
+
+  it('treats the SAME size again as an idempotent retry, not a second exchange', () => {
+    const a = initiateExchangeImpl({ orderId: 'TR-4528', sku: 'TR-SHR-009', toSize: 'L' }, diego());
+    const b = initiateExchangeImpl({ orderId: 'TR-4528', sku: 'TR-SHR-009', toSize: 'L' }, diego());
+    expect(b.code).toBe('EXCHANGE_CREATED');
+    if (a.code === 'EXCHANGE_CREATED' && b.code === 'EXCHANGE_CREATED') {
+      expect(b.exchangeId).toBe(a.exchangeId);
+      expect(b.alreadyExisted).toBe(true);
+    }
+  });
+
+  it('refuses a DIFFERENT size on the same item and cites 4.4', () => {
+    initiateExchangeImpl({ orderId: 'TR-4528', sku: 'TR-SHR-009', toSize: 'L' }, diego());
+    const second = initiateExchangeImpl(
+      { orderId: 'TR-4528', sku: 'TR-SHR-009', toSize: 'XL' }, diego());
+    expect(second.code).toBe('SECOND_EXCHANGE_NEEDS_APPROVAL');
+    if (second.code === 'SECOND_EXCHANGE_NEEDS_APPROVAL') {
+      expect(second.clauses).toContain('4.4');
+      expect(second.requestedSize).toBe('XL');
+    }
+  });
+
+  it('does not create a second exchange record when it refuses', () => {
+    initiateExchangeImpl({ orderId: 'TR-4528', sku: 'TR-SHR-009', toSize: 'L' }, diego());
+    const before = findItemExchange('TR-4528', 'TR-SHR-009');
+    initiateExchangeImpl({ orderId: 'TR-4528', sku: 'TR-SHR-009', toSize: 'XL' }, diego());
+    expect(findItemExchange('TR-4528', 'TR-SHR-009')?.exchangeId).toBe(before?.exchangeId);
   });
 });

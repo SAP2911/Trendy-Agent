@@ -2,7 +2,7 @@ import { getOrder, type Order } from '@/lib/data/orders';
 import { checkReturnEligibility, checkExchangeEligibility } from '@/lib/policy/eligibility';
 import { delayCreditFor } from '@/lib/policy/delay';
 import {
-  createReturn, createExchange, issueCredit, createTicket,
+  createReturn, createExchange, issueCredit, createTicket, findItemExchange,
 } from '@/lib/data/store';
 import type { TrendlyContext } from '@/lib/agent/session';
 import { escalateSession } from '@/lib/agent/session';
@@ -100,6 +100,25 @@ export function initiateExchangeImpl(
   // found this sku in the order (the SKU_NOT_IN_ORDER branch above is the
   // only path where it would not), so the item is structurally present.
   const item = auth.order.items.find((i) => i.sku === args.sku)!;
+
+  // §4.4: one exchange per item; a second request on the same item requires
+  // human approval. An existing exchange for a DIFFERENT size means this is a
+  // second request, not a retry — refuse and route it to a human rather than
+  // quietly creating another. Same size falls through to createExchange, which
+  // is idempotent and returns the original id.
+  const existing = findItemExchange(args.orderId, args.sku);
+  if (existing && existing.toSize !== args.toSize.trim().toLowerCase()) {
+    return {
+      code: 'SECOND_EXCHANGE_NEEDS_APPROVAL' as const,
+      existingExchangeId: existing.exchangeId,
+      existingSize: existing.toSize,
+      requestedSize: args.toSize,
+      clauses: ['4.4'],
+      reason: 'Trendly allows one exchange per item. A second exchange on the same item '
+        + 'needs approval from a human agent.',
+    };
+  }
+
   const { exchangeId, created } = createExchange({
     orderId: args.orderId, sku: args.sku, fromSize: item.size, toSize: args.toSize,
   });

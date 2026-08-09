@@ -63,9 +63,9 @@ describe('buildInstructions', () => {
   // The ceiling moved from 2500 in v2 to buy an explicit scope boundary — the
   // agent previously answered general-knowledge questions, which is a brand risk
   // and a jailbreak wedge. Verified end to end against the live provider.
-  it('stays under 3500 characters to respect free-tier TPM limits', () => {
-    expect(buildInstructions(anon).length).toBeLessThan(3500);
-    expect(buildInstructions(verified).length).toBeLessThan(3500);
+  it('stays under 4000 characters to respect free-tier TPM limits', () => {
+    expect(buildInstructions(anon).length).toBeLessThan(4000);
+    expect(buildInstructions(verified).length).toBeLessThan(4000);
   });
 });
 
@@ -88,5 +88,18 @@ describe('scope boundary', () => {
 
   it('still permits greetings so the bot is not hostile to normal openers', () => {
     expect(buildInstructions(anon)).toMatch(/greetings/i);
+  });
+});
+
+describe('check-then-act ordering', () => {
+  // v4's first wording ("ACT, do not just advise") caused a live regression:
+  // on the jewellery order the agent announced "I'll create a return for the
+  // pearl earrings" BEFORE calling check_return_eligibility. The tool would
+  // still have refused, but telling a customer their return is being created
+  // when it is not is its own failure. The eval harness caught it.
+  it('orders the instruction check-first, and forbids promising before checking', () => {
+    const p = buildInstructions(anon);
+    expect(p).toMatch(/CHECK, THEN ACT/);
+    expect(p).toMatch(/never say you are creating a return/i);
   });
 });

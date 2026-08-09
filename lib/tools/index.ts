@@ -156,8 +156,12 @@ export function buildTools(ctx: TrendlyContext): ToolSet {
         + '(30-day window, category, final-sale rules) — it will refuse even if you '
         + 'believe the exchange is valid. Trendly offers size exchanges only (§4.1); for '
         + 'a colour or style change, do not call this — tell the customer to return the '
-        + 'item and place a new order. Safe to retry: a repeat call on the same order and '
-        + 'sku returns the same exchange, never a second one.',
+        + 'item and place a new order. Safe to retry: a repeat call with the SAME size '
+        + 'returns the same exchange, never a duplicate. If it returns '
+        + 'SECOND_EXCHANGE_NEEDS_APPROVAL, this item already has an exchange for a '
+        + 'different size — §4.4 allows one per item, so tell the customer a human must '
+        + 'approve it and call escalate_to_human with reasonCode SECOND_EXCHANGE_REQUEST. '
+        + 'Do not retry with another size to get around it.',
       inputSchema: z.object({
         orderId: z.string(), sku: z.string(), toSize: z.string(),
       }),

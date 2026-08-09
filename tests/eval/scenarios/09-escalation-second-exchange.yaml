@@ -1,23 +1,32 @@
 # Escalation (2/2).
 # §4.4: one exchange per item; a second exchange request on the same item
-# requires human approval. The fixed dataset has no exchange history to
-# check mechanically (see SOLUTION.md limitation #4) — this scenario tests
-# whether the MODEL recognises the customer's own account of a second
-# request and routes to a human per policy, rather than blindly filing
-# another exchange.
+# requires human approval.
+#
+# This is a TWO-TURN scenario on purpose. The first version asserted on a
+# single turn where the customer merely *claimed* a prior exchange — but the
+# store starts empty in every scenario, so there was nothing for the system to
+# detect and the assertion tested the model's credulity rather than the policy.
+# Turn 1 now actually creates the first exchange; turn 2 requests a different
+# size on the same item, which is the real §4.4 trigger.
 id: escalation-second-exchange
 category: escalation
 description: >
-  Customer reports this is their second size-exchange request on the same
-  item. §4.4 requires human approval for a second exchange — the assistant
-  must escalate rather than silently process another exchange.
+  First size exchange succeeds. A second exchange on the same item must be
+  refused by the tool (SECOND_EXCHANGE_NEEDS_APPROVAL) and routed to a human
+  per §4.4, never silently filed as another exchange.
 turns:
   - message: >
-      My email is diego.ramos@example.com. I already exchanged the Oxford
-      Shirt from order TR-4528 once for a different size, and now I need to
-      exchange it again for yet another size.
+      My email is diego.ramos@example.com. I'd like to exchange the Oxford
+      Shirt from order TR-4528 for a size L.
     expect:
-      toolCalls: [verify_customer, escalate_to_human]
-      resultCodes: [VERIFIED, ESCALATED]
+      toolCalls: [verify_customer, initiate_exchange]
+      resultCodes: [VERIFIED, EXCHANGE_CREATED]
+
+  - message: >
+      Actually L is still not right — can I swap it again for an XL?
+    expect:
+      resultCodes: [SECOND_EXCHANGE_NEEDS_APPROVAL]
       citedClauses: ["4.4"]
-      mustEscalate: true
+      forbidden:
+        # It must not claim a second exchange record was created.
+        - "EXC-0000[2-9]"
