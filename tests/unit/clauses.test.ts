@@ -102,3 +102,60 @@ describe('parse() — pure function used for the build-time count assertion', ()
     expect(c?.section).toBe('9');
   });
 });
+
+// Mutation testing scored this module 34%: existing tests assert that the right
+// clause ids exist, while the parser's branch structure and the prompt-index
+// projection went unprobed.
+describe('clause lookup and index projection', () => {
+  it('returns undefined for an id that does not exist', () => {
+    expect(getClause('9.9')).toBeUndefined();
+    expect(getClause('')).toBeUndefined();
+  });
+
+  it('getClause agrees with getClauses for every id', () => {
+    for (const c of getClauses()) expect(getClause(c.id)).toEqual(c);
+  });
+
+  it('every clause has a non-empty id, title and body', () => {
+    for (const c of getClauses()) {
+      expect(c.id.length).toBeGreaterThan(0);
+      expect(c.title.length).toBeGreaterThan(0);
+      expect(c.text.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('no clause body swallows the next clause heading', () => {
+    // Over-capture would silently merge two clauses and make a citation wrong.
+    for (const c of getClauses()) expect(c.text).not.toMatch(/^\*\*\d+\.\d+\s/m);
+  });
+
+  it('assigns each numbered clause the section title of its number', () => {
+    expect(getClause('2.1')?.section).toMatch(/Returns/i);
+    expect(getClause('3.1')?.section).toMatch(/Refunds/i);
+    expect(getClause('1.1')?.section).toMatch(/Shipping/i);
+  });
+
+  it('the prompt index has one line per non-meta clause and omits meta ones', () => {
+    const lines = clauseIndexForPrompt().split('\n').filter(Boolean);
+    const nonMeta = getClauses().filter((c) => !c.id.startsWith('meta.'));
+    expect(lines).toHaveLength(nonMeta.length);
+    expect(clauseIndexForPrompt()).not.toContain('meta.');
+  });
+
+  it('every prompt-index line starts with a real clause id', () => {
+    for (const line of clauseIndexForPrompt().split('\n').filter(Boolean)) {
+      const id = line.split(' ')[0]!;
+      expect(getClause(id)).toBeDefined();
+    }
+  });
+});
+
+describe('parse() guards against a changed policy file', () => {
+  it('throws when the document yields the wrong clause count', () => {
+    expect(() => parse('## 1. Shipping\n\n**1.1 Only one.** Body.\n')).toThrow(/expected 29/);
+  });
+
+  it('names the count it actually found, so the failure is diagnosable', () => {
+    expect(() => parse('')).toThrow(/produced 2 clauses/);
+  });
+});

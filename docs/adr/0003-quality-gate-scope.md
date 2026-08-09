@@ -50,6 +50,34 @@ Two things the breakdown says plainly:
   internals and the parser's branch structure go unprobed. They are correct as far as
   the tests reach; the tests simply do not reach far.
 
+## Second measurement, after targeted tests (2026-08-09)
+
+27 behavioural tests were added to the two weakest modules — ranking order, the `k`
+limit, the zero-score filter, tokenisation, alias resolution, clause lookup, the
+prompt-index projection, and the parser's count guard. Result:
+
+| Module | Before | After |
+|---|---|---|
+| `clauses.ts` | 34.29% | **42.86%** |
+| `retrieval.ts` | 36.28% | **39.82%** |
+
+Real, and far short of 90%. That gap is the useful finding.
+
+**Why black-box tests stall here.** The surviving mutants live in arithmetic and
+branch structure that no public behaviour distinguishes: the BM25 `k1`/`b` constants,
+the IDF formula's `+0.5` smoothing terms, the length-normalisation denominator, the
+parser's regex alternation. Mutating `K1 = 1.5` to `K1 = 2.5` shifts every score by a
+similar factor, so the *ranking* — the only thing `searchPolicy` exposes — is unchanged
+and every test still passes. The mutant is not equivalent (scores really do differ), it
+is simply unobservable through the public surface.
+
+**The honest next step is a refactor, not more tests of the same kind.** Export
+`tokenize`, `idf` and `bm25Score` and assert on them directly, so the arithmetic has a
+test surface at all. Writing more end-to-end queries against `searchPolicy` will keep
+adding coverage while leaving these mutants alive — which is exactly the distinction
+mutation testing exists to draw, now demonstrated on this codebase rather than asserted
+in the abstract.
+
 ## Consequences
 The gates that *are* enforced protect the code where a defect changes a customer outcome.
 The mutation number is published rather than buried, with a named target and a named
